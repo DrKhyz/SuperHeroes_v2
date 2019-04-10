@@ -1,14 +1,54 @@
 import React, { Component } from 'react';
-import CardLife from './component/CardLife/CardLife';
+
+import Card from "./components/Card/Card"
+import ButtonRandomHero from "./components/Buttons/ButtonRandomHero"
+import ButtonFight from "./components/Buttons/ButtonFight";
+import './App.css';
+
 
 class App extends Component {
-	render() {
-		return (
-			<div>
-				<CardLife />
-			</div>
-		);
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      picture: ''
+    };
+  }
+
+  getCaracter1() {
+    const getRandomInt = max => { return Math.floor(Math.random() * Math.floor(max)) }
+    fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt(720)}`)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          picture: data.image.url
+        });
+      });
+  }
+
+  getCaracter2() {
+    const getRandomInt2 = max => { return Math.floor(Math.random() * Math.floor(max)) }
+    fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt2(720)}`)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ picture2: data.image.url });
+      });
+  }
+
+  render() {
+    return (
+      <div className="cardDisplay">
+        <Card imgUrl={this.state.picture} />
+        <div className="buttonDisplay">
+          <ButtonFight />
+          <ButtonRandomHero selectHero={() => {
+            this.getCaracter1()
+            this.getCaracter2()
+          }} />
+        </div>
+        <Card imgUrl={this.state.picture2} />
+      </div>
+    );
+  }
 }
 
 export default App;
