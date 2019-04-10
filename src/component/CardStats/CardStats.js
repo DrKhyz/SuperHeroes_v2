@@ -28,6 +28,12 @@ class CardStats extends React.Component {
 						</tr>
 					</tbody>
 				</Table>
+				<div>
+					<div>Full-name: Profesor X </div>
+					<div>Alignement : Good</div>
+					<div>Height : Unknow - Weigth: Unknow</div>
+					<div>Univers : Unknow </div>
+				</div>
 			</div>
 		);
 	}
