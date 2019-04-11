@@ -16,8 +16,10 @@ class App extends Component {
 	}
 
 	getCaracter1() {
-		// const getRandomInt = max => { return Math.floor(Math.random() * Math.floor(max)) }
-		fetch(`https://www.superheroapi.com/api.php/1241580159334538/644`)
+		const getRandomInt = max => {
+			return Math.floor(Math.random() * Math.floor(max));
+		};
+		fetch(`https://www.superheroapi.com/api.php/1241580159334538/${getRandomInt(729)}`)
 			.then(response => response.json())
 			.then(data => {
 				this.setState({
@@ -27,8 +29,10 @@ class App extends Component {
 	}
 
 	getCaracter2() {
-		// const getRandomInt2 = max => { return Math.floor(Math.random() * Math.floor(max)) }
-		fetch(`https://superheroapi.com/api.php/2427014800851400/202`)
+		const getRandomInt2 = max => {
+			return Math.floor(Math.random() * Math.floor(max));
+		};
+		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt2(729)}`)
 			.then(response => response.json())
 			.then(data => {
 				this.setState({ picture2: data.image.url });
@@ -41,10 +45,12 @@ class App extends Component {
 				<Card imgUrl={this.state.picture} />
 				<div className='buttonDisplay'>
 					<ButtonFight />
-					<ButtonRandomHero>
-						{this.getCaracter1()}
-						{this.getCaracter2()}
-					</ButtonRandomHero>
+					<ButtonRandomHero
+						selectHero={() => {
+							this.getCaracter1();
+							this.getCaracter2();
+						}}
+					/>
 					<CardLife />
 					<CardStars />
 				</div>
