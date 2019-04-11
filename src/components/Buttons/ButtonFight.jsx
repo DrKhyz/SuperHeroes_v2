@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 const ButtonFight = ({ selectOpponent }) => {
     return (
         <div>
-            <Button color="danger" onClick={selectOpponent}>Fight !</Button>
+            <Button color="danger">Fight !</Button>
         </div>
     );
 };
