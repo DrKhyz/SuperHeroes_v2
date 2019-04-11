@@ -11,7 +11,49 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			picture: ''
+			// hero1: { name: '', picture: '' },
+			hero1: {
+				id: '202',
+				name: 'Darkhawk',
+				powerstats: { intelligence: '50', strength: '32', speed: '33', durability: '70', power: '74', combat: '64' },
+				biography: {
+					'full-name': 'Christopher Powell',
+
+					publisher: 'Marvel Comics',
+					alignment: 'good'
+				},
+				appearance: {
+					height: ["6'1", '185 cm'],
+					weight: ['180 lb', '81 kg']
+				},
+
+				image: { url: 'https://www.superherodb.com/pictures2/portraits/10/100/53.jpg' }
+			},
+			// hero2: { picture: '' }
+			hero2: {
+				id: '644',
+				name: 'Superman',
+				powerstats: {
+					intelligence: '94',
+					strength: '100',
+					speed: '100',
+					durability: '100',
+					power: '100',
+					combat: '85'
+				},
+				biography: {
+					'full-name': 'Clark Kent',
+
+					publisher: 'Superman Prime One-Million',
+					alignment: 'good'
+				},
+				appearance: {
+					height: ["6'3", '191 cm'],
+					weight: ['225 lb', '101 kg']
+				},
+
+				image: { url: 'https://www.superherodb.com/pictures2/portraits/10/100/791.jpg' }
+			}
 		};
 	}
 
@@ -20,9 +62,7 @@ class App extends Component {
 		fetch(`https://www.superheroapi.com/api.php/1241580159334538/644`)
 			.then(response => response.json())
 			.then(data => {
-				this.setState({
-					picture: data.image.url
-				});
+				this.setState({ hero1: data });
 			});
 	}
 
@@ -31,14 +71,14 @@ class App extends Component {
 		fetch(`https://superheroapi.com/api.php/2427014800851400/202`)
 			.then(response => response.json())
 			.then(data => {
-				this.setState({ picture2: data.image.url });
+				this.setState({ hero2: data });
 			});
 	}
 
 	render() {
 		return (
 			<div className='cardDisplay'>
-				<Card imgUrl={this.state.picture} />
+				<Card imgUrl={this.state.hero1.image.url} />
 				<div className='buttonDisplay'>
 					<ButtonFight />
 					<ButtonRandomHero>
@@ -47,8 +87,9 @@ class App extends Component {
 					</ButtonRandomHero>
 					<CardLife />
 					<CardStars />
+					<CardStats props={this.state.hero1} />
 				</div>
-				<Card imgUrl={this.state.picture2} />
+				<Card imgUrl={this.state.hero2.image.url} />
 			</div>
 		);
 	}
