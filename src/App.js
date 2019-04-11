@@ -44,6 +44,7 @@ class App extends Component {
           {this.getCaracter1()}
           {this.getCaracter2()}
           </ButtonRandomHero>
+	  <CardLife />
         </div>
         <Card imgUrl={this.state.picture2} />
       </div>
