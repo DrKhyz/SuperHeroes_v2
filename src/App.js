@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
+import CardStats from './components/CardStats/CardStats';
 import Card from './components/Card/Card';
+import CardStars from './components/CardStars/CardStars';
 import CardLife from './components/CardLife/CardLife';
 import ButtonRandomHero from './components/Buttons/ButtonRandomHero';
 import ButtonFight from './components/Buttons/ButtonFight';
@@ -45,6 +46,7 @@ class App extends Component {
 						{this.getCaracter2()}
 					</ButtonRandomHero>
 					<CardLife />
+					<CardStars />
 				</div>
 				<Card imgUrl={this.state.picture2} />
 			</div>
