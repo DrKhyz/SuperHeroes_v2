@@ -1,1 +1,15 @@
+.App {
+  text-align: center;
+}
+.cardDisplay{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
+.buttonDisplay{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80vh;
+}
