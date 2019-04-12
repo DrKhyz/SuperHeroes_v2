@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Background = (props) => {
-    return (
-        <div>
-            <img src={props.imgUrl} alt="" />
-        </div>
-    )
+class Background extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
+
+	render() {
+		return (
+			<div>
+				<img src={this.props.imgUrl} alt='' />
+			</div>
+		);
+	}
 }
 
 export default Background;

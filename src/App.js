@@ -6,12 +6,13 @@ import CardLife from './components/CardLife/CardLife';
 import ButtonRandomHero from './components/Buttons/ButtonRandomHero';
 import ButtonFight from './components/Buttons/ButtonFight';
 import './App.css';
+import { Spinner } from 'reactstrap';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// hero1: { name: '', picture: '' },
+			isLoading: true,
 			hero1: {
 				id: '202',
 				name: 'Darkhawk',
@@ -29,7 +30,6 @@ class App extends Component {
 
 				image: { url: 'https://www.superherodb.com/pictures2/portraits/10/100/53.jpg' }
 			},
-			// hero2: { picture: '' }
 			hero2: {
 				id: '644',
 				name: 'Superman',
@@ -57,29 +57,68 @@ class App extends Component {
 		};
 	}
 
+	componentDidMount() {
+		this.getCaracter1();
+		this.getCaracter2();
+	}
+
 	getCaracter1() {
-		const getRandomInt = max => {
+		this.setState({ isLoading: true });
+		const getRandomInt1 = max => {
 			return Math.floor(Math.random() * Math.floor(max));
 		};
-		fetch(`https://www.superheroapi.com/api.php/1241580159334538/${getRandomInt(729)}`)
+		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt1(720)}`)
 			.then(response => response.json())
 			.then(data => {
-				this.setState({ hero1: data });
+				this.setState({
+					isLoading: false,
+					picture: data.image.url,
+					hero1: data
+				});
 			});
 	}
 
 	getCaracter2() {
+		this.setState({ isLoading: true });
 		const getRandomInt2 = max => {
 			return Math.floor(Math.random() * Math.floor(max));
 		};
-		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt2(729)}`)
+		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt2(720)}`)
 			.then(response => response.json())
 			.then(data => {
-				this.setState({ hero2: data });
+				this.setState({
+					isLoading: false,
+					picture2: data.image.url,
+					hero2: data
+				});
 			});
 	}
 
 	render() {
+		if (this.state.isLoading) {
+			return (
+				<div className='cardDisplay'>
+					<p>
+						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
+					</p>
+					<div className='buttonDisplay'>
+						<ButtonFight />
+						<ButtonRandomHero
+							selectHero={() => {
+								this.getCaracter1();
+								this.getCaracter2();
+							}}
+						/>
+						<CardLife />
+						<CardStars />
+						<CardStats props={this.state.hero1} />
+					</div>
+					<p>
+						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
+					</p>
+				</div>
+			);
+		}
 		return (
 			<div className='cardDisplay'>
 				<Card imgUrl={this.state.hero1.image.url} />
