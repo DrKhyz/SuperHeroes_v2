@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import CardStats from './components/CardStats/CardStats';
 import Card from './components/Card/Card';
-import CardStars from './components/CardStars/CardStars';
-import CardLife from './components/CardLife/CardLife';
 import ButtonRandomHero from './components/Buttons/ButtonRandomHero';
 import ButtonFight from './components/Buttons/ButtonFight';
 import './App.css';
@@ -82,7 +79,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className='cardDisplay'>
-				<Card imgUrl={this.state.hero1.image.url} />
+				<Card {...this.state.hero1} />
 				<div className='buttonDisplay'>
 					<ButtonFight />
 					<ButtonRandomHero
@@ -91,11 +88,8 @@ class App extends Component {
 							this.getCaracter2();
 						}}
 					/>
-					<CardLife />
-					<CardStars />
-					<CardStats props={this.state.hero1} />
 				</div>
-				<Card imgUrl={this.state.hero2.image.url} />
+				<Card {...this.state.hero2} />
 			</div>
 		);
 	}

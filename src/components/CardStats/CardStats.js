@@ -2,7 +2,9 @@ import React from 'react';
 import { Table } from 'reactstrap';
 import './CardStats.css';
 
-const CardStats = ({ props }) => {
+const CardStats = props => {
+	console.log(props);
+
 	return (
 		<div className='card_stats'>
 			<Table>
