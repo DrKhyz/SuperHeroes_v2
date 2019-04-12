@@ -79,6 +79,7 @@ class App extends Component {
 	}
 
 	getCaracter2() {
+		this.setState({ isLoading: true });
 		const getRandomInt2 = max => {
 			return Math.floor(Math.random() * Math.floor(max));
 		};
@@ -110,6 +111,7 @@ class App extends Component {
 						/>
 						<CardLife />
 						<CardStars />
+						<CardStats props={this.state.hero1} />
 					</div>
 					<p>
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
