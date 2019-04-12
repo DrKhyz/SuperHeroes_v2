@@ -3,6 +3,7 @@ import Background from './Background/Background';
 import CardStars from '../CardStars/CardStars';
 import CardLife from '../CardLife/CardLife';
 import CardStats from '../CardStats/CardStats';
+import CardName from '../CardName/CardName';
 
 const Card = props => {
 	return (
@@ -11,6 +12,7 @@ const Card = props => {
 			<CardLife />
 			<CardStars />
 			<CardStats {...props} />
+			<CardName name={props.name} />
 		</div>
 	);
 };

@@ -3,8 +3,6 @@ import { Table } from 'reactstrap';
 import './CardStats.css';
 
 const CardStats = props => {
-	console.log(props);
-
 	return (
 		<div className='card_stats'>
 			<Table>
