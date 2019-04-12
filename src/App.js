@@ -7,6 +7,7 @@ import ButtonRandomHero from './components/Buttons/ButtonRandomHero';
 import ButtonFight from './components/Buttons/ButtonFight';
 import './App.css';
 import { Spinner } from 'reactstrap';
+import ImgVS from './components/ImgVS/ImgVS';
 
 class App extends Component {
 	constructor(props) {
@@ -102,7 +103,7 @@ class App extends Component {
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
 					</p>
 					<div className='buttonDisplay'>
-						<ButtonFight />
+						<ImgVS urlImgVS='https://png2.kisspng.com/sh/c3bb16bcd5fdf9991c1d23fe39929022/L0KzQYm4UMI2N6V6gJH0aYP2gLBuTgZqbJZ0RdlqbXX2PcX2mb1qdqVqhJ9sb4LoPbq6TflvfJZxRdV4cnWweYa0UsUufqQyiNDwLUXldIO3hvQ3bJJrSKk5Lkm2QIWCUckzOWY5SKYEM0K6QImCVsgveJ9s/kisspng-video-games-toy-intel-core-i3-intel-core-i5-25-vs-png-5bd20fd6daf070.9304919215404932708968.png' />
 						<ButtonRandomHero
 							selectHero={() => {
 								this.getCaracter1();
@@ -112,6 +113,7 @@ class App extends Component {
 						<CardLife />
 						<CardStars />
 						<CardStats props={this.state.hero1} />
+						<ButtonFight />
 					</div>
 					<p>
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
@@ -123,7 +125,7 @@ class App extends Component {
 			<div className='cardDisplay'>
 				<Card imgUrl={this.state.hero1.image.url} />
 				<div className='buttonDisplay'>
-					<ButtonFight />
+					<ImgVS urlImgVS='https://png2.kisspng.com/sh/c3bb16bcd5fdf9991c1d23fe39929022/L0KzQYm4UMI2N6V6gJH0aYP2gLBuTgZqbJZ0RdlqbXX2PcX2mb1qdqVqhJ9sb4LoPbq6TflvfJZxRdV4cnWweYa0UsUufqQyiNDwLUXldIO3hvQ3bJJrSKk5Lkm2QIWCUckzOWY5SKYEM0K6QImCVsgveJ9s/kisspng-video-games-toy-intel-core-i3-intel-core-i5-25-vs-png-5bd20fd6daf070.9304919215404932708968.png' />
 					<ButtonRandomHero
 						selectHero={() => {
 							this.getCaracter1();
@@ -133,6 +135,7 @@ class App extends Component {
 					<CardLife />
 					<CardStars />
 					<CardStats props={this.state.hero1} />
+					<ButtonFight />
 				</div>
 				<Card imgUrl={this.state.hero2.image.url} />
 			</div>
