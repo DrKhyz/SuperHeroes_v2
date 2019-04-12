@@ -107,9 +107,6 @@ class App extends Component {
 								this.getCaracter2();
 							}}
 						/>
-						<CardLife />
-						<CardStars />
-						<CardStats props={this.state.hero1} />
 						<ButtonFight />
 					</div>
 					<p>
