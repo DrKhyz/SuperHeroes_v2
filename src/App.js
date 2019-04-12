@@ -12,7 +12,48 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isLoading: true
+			isLoading: true,
+			hero1: {
+				id: '202',
+				name: 'Darkhawk',
+				powerstats: { intelligence: '50', strength: '32', speed: '33', durability: '70', power: '74', combat: '64' },
+				biography: {
+					'full-name': 'Christopher Powell',
+
+					publisher: 'Marvel Comics',
+					alignment: 'good'
+				},
+				appearance: {
+					height: ["6'1", '185 cm'],
+					weight: ['180 lb', '81 kg']
+				},
+
+				image: { url: 'https://www.superherodb.com/pictures2/portraits/10/100/53.jpg' }
+			},
+			hero2: {
+				id: '644',
+				name: 'Superman',
+				powerstats: {
+					intelligence: '94',
+					strength: '100',
+					speed: '100',
+					durability: '100',
+					power: '100',
+					combat: '85'
+				},
+				biography: {
+					'full-name': 'Clark Kent',
+
+					publisher: 'Superman Prime One-Million',
+					alignment: 'good'
+				},
+				appearance: {
+					height: ["6'3", '191 cm'],
+					weight: ['225 lb', '101 kg']
+				},
+
+				image: { url: 'https://www.superherodb.com/pictures2/portraits/10/100/791.jpg' }
+			}
 		};
 	}
 
@@ -31,7 +72,8 @@ class App extends Component {
 			.then(data => {
 				this.setState({
 					isLoading: false,
-					picture: data.image.url
+					picture: data.image.url,
+					hero1: data
 				});
 			});
 	}
@@ -45,7 +87,8 @@ class App extends Component {
 			.then(data => {
 				this.setState({
 					isLoading: false,
-					picture2: data.image.url
+					picture2: data.image.url,
+					hero2: data
 				});
 			});
 	}
@@ -78,7 +121,7 @@ class App extends Component {
 		}
 		return (
 			<div className='cardDisplay'>
-				<Card imgUrl={this.state.picture} />
+				<Card imgUrl={this.state.hero1.image.url} />
 				<div className='buttonDisplay'>
 					<ButtonFight />
 					<ButtonRandomHero
@@ -89,8 +132,9 @@ class App extends Component {
 					/>
 					<CardLife />
 					<CardStars />
+					<CardStats props={this.state.hero1} />
 				</div>
-				<Card imgUrl={this.state.picture2} />
+				<Card imgUrl={this.state.hero2.image.url} />
 			</div>
 		);
 	}
