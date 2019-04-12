@@ -1,9 +1,9 @@
 import React from 'react';
 
-const CardName = () => {
+const CardName = props => {
 	return (
 		<div>
-			<p>Batman</p>
+			<p>{props.name}</p>
 		</div>
 	);
 };
