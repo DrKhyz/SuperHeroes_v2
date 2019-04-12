@@ -98,7 +98,6 @@ class App extends Component {
 			return (
 				<div className='cardDisplay'>
 					<p>
-						It's loading... <br />
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
 					</p>
 					<div className='buttonDisplay'>
@@ -113,7 +112,6 @@ class App extends Component {
 						<CardStars />
 					</div>
 					<p>
-						It's loading... <br />
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
 					</p>
 				</div>
