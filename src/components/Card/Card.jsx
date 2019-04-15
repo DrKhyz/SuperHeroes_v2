@@ -9,7 +9,7 @@ const Card = props => {
 	return (
 		<div>
 			<Background image={props.image} />
-			<CardLife />
+			<CardLife {...props.powerstats} />
 			<CardStars />
 			<CardStats {...props} />
 			<CardName name={props.name} />
