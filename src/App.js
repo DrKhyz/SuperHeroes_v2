@@ -12,45 +12,54 @@ class App extends Component {
 		this.state = {
 			isLoading: true,
 			hero1: {
-				id: '202',
-				name: 'Darkhawk',
-				powerstats: { intelligence: '50', strength: '32', speed: '33', durability: '70', power: '74', combat: '64' },
+				id: '',
+				name: '',
+				powerstats: {
+					intelligence: '',
+					strength: '',
+					speed: '',
+					durability: '',
+					power: '',
+					combat: '',
+					life: ''
+				},
 				biography: {
-					'full-name': 'Christopher Powell',
-
-					publisher: 'Marvel Comics',
-					alignment: 'good'
+					'full-name': '',
+					publisher: '',
+					alignment: ''
 				},
 				appearance: {
-					height: ["6'1", '185 cm'],
-					weight: ['180 lb', '81 kg']
+					gender: '',
+					race: '',
+					height: '',
+					weight: ''
 				},
-
-				image: { url: 'https://www.superherodb.com/pictures2/portraits/10/100/53.jpg' }
+				image: ''
 			},
 			hero2: {
-				id: '644',
-				name: 'Superman',
+				id: '',
+				name: '',
 				powerstats: {
-					intelligence: '94',
-					strength: '100',
-					speed: '100',
-					durability: '100',
-					power: '100',
-					combat: '85'
+					intelligence: '',
+					strength: '',
+					speed: '',
+					durability: '',
+					power: '',
+					combat: '',
+					life: ''
 				},
 				biography: {
-					'full-name': 'Clark Kent',
-
-					publisher: 'Superman Prime One-Million',
-					alignment: 'good'
+					'full-name': '',
+					publisher: '',
+					alignment: ''
 				},
 				appearance: {
-					height: ["6'3", '191 cm'],
-					weight: ['225 lb', '101 kg']
+					gender: '',
+					race: '',
+					height: '',
+					weight: ''
 				},
-
-				image: { url: 'https://www.superherodb.com/pictures2/portraits/10/100/791.jpg' }
+				image: ''
 			}
 		};
 	}
@@ -67,13 +76,36 @@ class App extends Component {
 		};
 		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt1(720)}`)
 			.then(response => response.json())
-			.then(data => {
+			.then(data =>
 				this.setState({
 					isLoading: false,
-					picture: data.image.url,
-					hero1: data
-				});
-			});
+					hero1: {
+						id: data.id,
+						name: data.name,
+						powerstats: {
+							intelligence: data.powerstats.intelligence,
+							strength: data.powerstats.strength,
+							speed: data.powerstats.speed,
+							durability: data.powerstats.durability,
+							power: data.powerstats.power,
+							combat: data.powerstats.combat,
+							life: data.powerstats.durability
+						},
+						biography: {
+							'full-name': data.biography['full-name'],
+							publisher: data.biography.publisher,
+							alignment: data.biography.alignment
+						},
+						appearance: {
+							gender: data.appearance.gender,
+							race: data.appearance.race,
+							height: data.appearance.height[1],
+							weight: data.appearance.weight[1]
+						},
+						image: data.image
+					}
+				})
+			);
 	}
 
 	getCaracter2() {
@@ -86,8 +118,31 @@ class App extends Component {
 			.then(data => {
 				this.setState({
 					isLoading: false,
-					picture2: data.image.url,
-					hero2: data
+					hero2: {
+						id: data.id,
+						name: data.name,
+						powerstats: {
+							intelligence: data.powerstats.intelligence,
+							strength: data.powerstats.strength,
+							speed: data.powerstats.speed,
+							durability: data.powerstats.durability,
+							power: data.powerstats.power,
+							combat: data.powerstats.combat,
+							life: data.powerstats.durability
+						},
+						biography: {
+							'full-name': data.biography['full-name'],
+							publisher: data.biography.publisher,
+							alignment: data.biography.alignment
+						},
+						appearance: {
+							gender: data.appearance.gender,
+							race: data.appearance.race,
+							height: data.appearance.height[1],
+							weight: data.appearance.weight[1]
+						},
+						image: data.image
+					}
 				});
 			});
 	}
@@ -126,6 +181,7 @@ class App extends Component {
 							this.getCaracter2();
 						}}
 					/>
+					<ButtonFight />
 				</div>
 				<Card {...this.state.hero2} />
 			</div>
