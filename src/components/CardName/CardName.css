@@ -1,0 +1,21 @@
+.card_Name {
+	width: 90%;
+	z-index: 1;
+	margin-top: -125%;
+	margin-left: 5%;
+}
+
+.card_Name_text {
+	z-index: 1;
+	font-size: 160%;
+	margin-top: -3%;
+	margin-left: 2%;
+}
+
+.Name_n_Stars {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	position: relative;
+	margin-top: -6%;
+}

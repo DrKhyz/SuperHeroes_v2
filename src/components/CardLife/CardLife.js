@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './CardLife.module.css';
-import { Progress } from 'reactstrap';
+import { Progress, Container, Row, Col } from 'reactstrap';
 
 const CardLife = props => {
 	return (
-		<div className={styles.card_life}>
-			<Progress color='success' value='100' />
+		<div>
+			<Progress color='success' value='100' className={styles.card_life} />
 		</div>
 	);
 };

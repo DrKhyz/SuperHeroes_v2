@@ -5,7 +5,7 @@ import './CardStats.css';
 const CardStats = props => {
 	return (
 		<div className='card_stats'>
-			<Table>
+			<Table size='sm'>
 				<thead>
 					<tr>
 						<th>INT</th>

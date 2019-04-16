@@ -1,8 +1,10 @@
 .card_stats {
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 74%;
 	background-color: #bbb;
 	opacity: 0.9;
 	border: 2px solid black;
-	border-radius: 2vw;
+	border-radius: 1vw;
 	text-align: center;
-	margin-top: 20px;
 }
