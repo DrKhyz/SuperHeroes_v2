@@ -12,45 +12,54 @@ class App extends Component {
 		this.state = {
 			isLoading: true,
 			hero1: {
-				id: '202',
-				name: 'Darkhawk',
-				powerstats: { intelligence: '50', strength: '32', speed: '33', durability: '70', power: '74', combat: '64' },
+				id: '',
+				name: '',
+				powerstats: {
+					intelligence: '',
+					strength: '',
+					speed: '',
+					durability: '',
+					power: '',
+					combat: '',
+					life: ''
+				},
 				biography: {
-					'full-name': 'Christopher Powell',
-
-					publisher: 'Marvel Comics',
-					alignment: 'good'
+					'full-name': '',
+					publisher: '',
+					alignment: ''
 				},
 				appearance: {
-					height: ["6'1", '185 cm'],
-					weight: ['180 lb', '81 kg']
+					gender: '',
+					race: '',
+					height: '',
+					weight: ''
 				},
-
-				image: { url: 'https://www.superherodb.com/pictures2/portraits/10/100/53.jpg' }
+				image: ''
 			},
 			hero2: {
-				id: '644',
-				name: 'Superman',
+				id: '',
+				name: '',
 				powerstats: {
-					intelligence: '94',
-					strength: '100',
-					speed: '100',
-					durability: '100',
-					power: '100',
-					combat: '85'
+					intelligence: '',
+					strength: '',
+					speed: '',
+					durability: '',
+					power: '',
+					combat: '',
+					life: ''
 				},
 				biography: {
-					'full-name': 'Clark Kent',
-
-					publisher: 'Superman Prime One-Million',
-					alignment: 'good'
+					'full-name': '',
+					publisher: '',
+					alignment: ''
 				},
 				appearance: {
-					height: ["6'3", '191 cm'],
-					weight: ['225 lb', '101 kg']
+					gender: '',
+					race: '',
+					height: '',
+					weight: ''
 				},
-
-				image: { url: 'https://www.superherodb.com/pictures2/portraits/10/100/791.jpg' }
+				image: ''
 			}
 		};
 	}
@@ -70,8 +79,31 @@ class App extends Component {
 			.then(data => {
 				this.setState({
 					isLoading: false,
-					picture: data.image.url,
-					hero1: data
+					hero1: {
+						id: data.id,
+						name: data.name,
+						powerstats: {
+							intelligence: data.powerstats.intelligence,
+							strength: parseInt(data.powerstats.strength),
+							speed: data.powerstats.speed,
+							durability: data.powerstats.durability,
+							power: data.powerstats.power,
+							combat: data.powerstats.combat,
+							life: parseInt(data.powerstats.durability)
+						},
+						biography: {
+							'full-name': data.biography['full-name'],
+							publisher: data.biography.publisher,
+							alignment: data.biography.alignment
+						},
+						appearance: {
+							gender: data.appearance.gender,
+							race: data.appearance.race,
+							height: data.appearance.height[1],
+							weight: data.appearance.weight[1]
+						},
+						image: data.image
+					}
 				});
 			});
 	}
@@ -86,10 +118,100 @@ class App extends Component {
 			.then(data => {
 				this.setState({
 					isLoading: false,
-					picture2: data.image.url,
-					hero2: data
+					hero2: {
+						id: data.id,
+						name: data.name,
+						powerstats: {
+							intelligence: data.powerstats.intelligence,
+							strength: parseInt(data.powerstats.strength),
+							speed: data.powerstats.speed,
+							durability: data.powerstats.durability,
+							power: data.powerstats.power,
+							combat: data.powerstats.combat,
+							life: parseInt(data.powerstats.durability)
+						},
+						biography: {
+							'full-name': data.biography['full-name'],
+							publisher: data.biography.publisher,
+							alignment: data.biography.alignment
+						},
+						appearance: {
+							gender: data.appearance.gender,
+							race: data.appearance.race,
+							height: data.appearance.height[1],
+							weight: data.appearance.weight[1]
+						},
+						image: data.image
+					}
 				});
 			});
+	}
+
+	algoCombat(oldStats) {
+		console.log('combat');
+
+		// ----- ALGO COMBAT
+
+		oldStats.hero1.powerstats.life -= oldStats.hero2.powerstats.strength;
+		oldStats.hero2.powerstats.life -= oldStats.hero1.powerstats.strength;
+
+		// ---------- TESTS
+
+		console.log(oldStats.hero1.powerstats.life);
+		console.log(oldStats.hero2.powerstats.strength);
+		console.log(oldStats.hero2.powerstats.life);
+		console.log(oldStats.hero1.powerstats.strength);
+
+		// ---------- TESTS
+
+		this.setState({
+			hero1: {
+				id: oldStats.hero1.id,
+				name: oldStats.hero1.name,
+				powerstats: {
+					intelligence: oldStats.hero1.powerstats.intelligence,
+					strength: oldStats.hero1.powerstats.strength,
+					speed: oldStats.hero1.powerstats.speed,
+					durability: oldStats.hero1.powerstats.durability,
+					power: oldStats.hero1.powerstats.power,
+					combat: oldStats.hero1.powerstats.combat,
+					life: oldStats.hero1.powerstats.life
+				},
+				biography: {
+					...oldStats.hero1.biography
+				},
+				appearance: {
+					gender: oldStats.hero1.appearance.gender,
+					race: oldStats.hero1.appearance.race,
+					height: oldStats.hero1.appearance.height,
+					weight: oldStats.hero1.appearance.weight
+				},
+				image: oldStats.hero1.image
+			},
+			hero2: {
+				id: oldStats.hero2.id,
+				name: oldStats.hero2.name,
+				powerstats: {
+					intelligence: oldStats.hero2.powerstats.intelligence,
+					strength: oldStats.hero2.powerstats.strength,
+					speed: oldStats.hero2.powerstats.speed,
+					durability: oldStats.hero2.powerstats.durability,
+					power: oldStats.hero2.powerstats.power,
+					combat: oldStats.hero2.powerstats.combat,
+					life: oldStats.hero2.powerstats.life
+				},
+				biography: {
+					...oldStats.hero2.biography
+				},
+				appearance: {
+					gender: oldStats.hero2.appearance.gender,
+					race: oldStats.hero2.appearance.race,
+					height: oldStats.hero2.appearance.height,
+					weight: oldStats.hero2.appearance.weight
+				},
+				image: oldStats.hero2.image
+			}
+		});
 	}
 
 	render() {
@@ -107,7 +229,9 @@ class App extends Component {
 								this.getCaracter2();
 							}}
 						/>
-						<ButtonFight />
+						<button onClick={() => this.algoCombat(this.state)} color='danger'>
+							Fight !
+						</button>
 					</div>
 					<p>
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
@@ -126,7 +250,9 @@ class App extends Component {
 							this.getCaracter2();
 						}}
 					/>
-					<ButtonFight />
+					<button onClick={() => this.algoCombat(this.state)} color='danger'>
+						Fight !
+					</button>
 				</div>
 				<Card {...this.state.hero2} />
 			</div>

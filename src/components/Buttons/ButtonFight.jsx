@@ -2,9 +2,9 @@ import React from 'react';
 import { Button } from 'reactstrap';
 import './ButtonFight.css';
 
-const ButtonFight = ({ Fight }) => {
+const ButtonFight = ({ selectOpponent }) => {
 	return (
-		<div className='Button_fight'>
+		<div>
 			<Button color='danger'>Fight !</Button>
 		</div>
 	);
