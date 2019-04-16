@@ -155,17 +155,14 @@ class App extends Component {
 		oldStats.hero1.powerstats.life -= oldStats.hero2.powerstats.strength;
 		oldStats.hero2.powerstats.life -= oldStats.hero1.powerstats.strength;
 
-		// ------- ALGO BARRE DE VIE
-
-		if (oldStats.hero1.powerstats.life <= 0) {
-		}
-
 		// ---------- TESTS
 
 		console.log(oldStats.hero1.powerstats.life);
 		console.log(oldStats.hero2.powerstats.strength);
 		console.log(oldStats.hero2.powerstats.life);
 		console.log(oldStats.hero1.powerstats.strength);
+
+		// ---------- TESTS
 
 		this.setState({
 			hero1: {
