@@ -10,7 +10,7 @@ const Card = props => {
 	return (
 		<div className='cardContainer'>
 			<Background image={props.image} />
-			<CardName name={props.name} />
+			<CardName {...props} />
 			<CardStats {...props} />
 		</div>
 	);
