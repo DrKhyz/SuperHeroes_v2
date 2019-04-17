@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import Background from './Background/Background';
-import CardStars from '../CardStars/CardStars';
 import CardLife from '../CardLife/CardLife';
 import CardStats from '../CardStats/CardStats';
 import CardName from '../CardName/CardName';
+import './Card.css';
+import { Spinner, Container, Row, Col } from 'reactstrap';
 
 const Card = props => {
 	return (
-		<div>
+		<div className='cardContainer'>
 			<Background image={props.image} />
-			<CardLife {...props.powerstats} />
-			<CardStars />
-			<CardStats {...props} />
 			<CardName name={props.name} />
+			<CardStats {...props} />
 		</div>
 	);
 };

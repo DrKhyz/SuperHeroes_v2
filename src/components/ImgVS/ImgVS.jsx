@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import './ImgVS.css';
 
 const ImgVS = props => {
-	return <img src={props.urlImgVS} alt='' />;
+	return <img className='img_vs' src={props.urlImgVS} alt='' />;
 };
 
 export default ImgVS;

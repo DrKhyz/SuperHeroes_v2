@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap';
+import './ButtonFight.css';
 
 const ButtonFight = ({ selectOpponent }) => {
 	return (

@@ -3,7 +3,7 @@ import Card from './components/Card/Card';
 import ButtonRandomHero from './components/Buttons/ButtonRandomHero';
 import ButtonFight from './components/Buttons/ButtonFight';
 import './App.css';
-import { Spinner } from 'reactstrap';
+import { Spinner, Container, Row, Col } from 'reactstrap';
 import ImgVS from './components/ImgVS/ImgVS';
 
 class App extends Component {
@@ -76,7 +76,7 @@ class App extends Component {
 		};
 		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt1(720)}`)
 			.then(response => response.json())
-			.then(data =>
+			.then(data => {
 				this.setState({
 					isLoading: false,
 					hero1: {
@@ -104,8 +104,8 @@ class App extends Component {
 						},
 						image: data.image
 					}
-				})
-			);
+				});
+			});
 	}
 
 	getCaracter2() {
@@ -222,14 +222,16 @@ class App extends Component {
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
 					</p>
 					<div className='buttonDisplay'>
-						<ImgVS urlImgVS='https://png2.kisspng.com/sh/c3bb16bcd5fdf9991c1d23fe39929022/L0KzQYm4UMI2N6V6gJH0aYP2gLBuTgZqbJZ0RdlqbXX2PcX2mb1qdqVqhJ9sb4LoPbq6TflvfJZxRdV4cnWweYa0UsUufqQyiNDwLUXldIO3hvQ3bJJrSKk5Lkm2QIWCUckzOWY5SKYEM0K6QImCVsgveJ9s/kisspng-video-games-toy-intel-core-i3-intel-core-i5-25-vs-png-5bd20fd6daf070.9304919215404932708968.png' />
+						<ImgVS urlImgVS='http://www.sclance.com/pngs/vs-png/vs_png_1474185.png' />
 						<ButtonRandomHero
 							selectHero={() => {
 								this.getCaracter1();
 								this.getCaracter2();
 							}}
 						/>
-						<ButtonFight />
+						<button onClick={() => this.algoCombat(this.state)} color='danger'>
+							Fight !
+						</button>
 					</div>
 					<p>
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
@@ -241,7 +243,7 @@ class App extends Component {
 			<div className='cardDisplay'>
 				<Card {...this.state.hero1} />
 				<div className='buttonDisplay'>
-					<ImgVS urlImgVS='https://png2.kisspng.com/sh/c3bb16bcd5fdf9991c1d23fe39929022/L0KzQYm4UMI2N6V6gJH0aYP2gLBuTgZqbJZ0RdlqbXX2PcX2mb1qdqVqhJ9sb4LoPbq6TflvfJZxRdV4cnWweYa0UsUufqQyiNDwLUXldIO3hvQ3bJJrSKk5Lkm2QIWCUckzOWY5SKYEM0K6QImCVsgveJ9s/kisspng-video-games-toy-intel-core-i3-intel-core-i5-25-vs-png-5bd20fd6daf070.9304919215404932708968.png' />
+					<ImgVS urlImgVS='http://www.sclance.com/pngs/vs-png/vs_png_1474185.png' />
 					<ButtonRandomHero
 						selectHero={() => {
 							this.getCaracter1();
