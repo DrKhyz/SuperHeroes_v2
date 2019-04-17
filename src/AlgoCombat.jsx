@@ -6,6 +6,7 @@ const AlgoCombat = oldStats => {
 	// ----- ALGO COMBAT
 
 	oldStats.hero1.powerstats.life -= oldStats.hero2.powerstats.strength;
+
 	oldStats.hero2.powerstats.life -= oldStats.hero1.powerstats.strength;
 
 	// ---------- TESTS

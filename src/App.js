@@ -4,7 +4,7 @@ import ButtonRandomHero from './components/Buttons/ButtonRandomHero';
 import ButtonFight from './components/Buttons/ButtonFight';
 import AlgoCombat from './AlgoCombat';
 import './App.css';
-import { Spinner, Container, Row, Col } from 'reactstrap';
+import { Spinner, Container, Row, Col, Progress } from 'reactstrap';
 import ImgVS from './components/ImgVS/ImgVS';
 
 class App extends Component {
