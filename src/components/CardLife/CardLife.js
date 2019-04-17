@@ -5,7 +5,12 @@ import { Progress, Container, Row, Col } from 'reactstrap';
 const CardLife = props => {
 	return (
 		<div>
-			<Progress color='success' value='100' className={styles.card_life} />
+			<Progress
+				color='success'
+				value={props.powerstats.life}
+				max={props.powerstats.durability}
+				className={styles.card_life}
+			/>
 		</div>
 	);
 };
