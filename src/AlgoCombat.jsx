@@ -1,20 +1,78 @@
 import React from 'react';
 
 const AlgoCombat = oldStats => {
+	// let intelligence1 = oldStats.hero1.powerstats.intelligence
+	// let strength1 = oldStats.hero1.powerstats.strength
+	// let speed1 = oldStats.hero1.powerstats.speed
+	// let durability1 = oldStats.hero1.powerstats.durability
+	// let power1 = oldStats.hero1.powerstats.power
+	// let combat1 = oldStats.hero1.powerstats.combat
+	// let life1 = oldStats.hero1.powerstats.life
+
+	// let intelligence2 = oldStats.hero2.powerstats.intelligence
+	// let strength2 = oldStats.hero2.powerstats.strength
+	// let speed2 = oldStats.hero2.powerstats.speed
+	// let durability2 = oldStats.hero2.powerstats.durability
+	// let power2 = oldStats.hero2.powerstats.power
+	// let combat2 = oldStats.hero2.powerstats.combat
+	// let life2 = oldStats.hero2.powerstats.life
+
 	console.log('combat');
 
 	// ----- ALGO COMBAT
 
-	oldStats.hero1.powerstats.life -= oldStats.hero2.powerstats.strength;
 
-	oldStats.hero2.powerstats.life -= oldStats.hero1.powerstats.strength;
+
+	const min = 1;
+	const max = 1.8;
+	let randomNumber1;
+	let randomNumber2;
+	// let result = ((Math.random() * (max - min)) + min).toFixed(2);
+
+	// console.log(result);
+
+	//GENERER LES ATTAQUES DANS LA BOUCLES!!!
+
+	for (let i = 0; i < 1; i++) {
+		randomNumber1 = ((Math.random() * (max - min)) + min).toFixed(2);
+		randomNumber2 = ((Math.random() * (max - min)) + min).toFixed(2);
+	}
+
+
+	// let attack2 = Math.floor(((oldStats.hero2.powerstats.strength + (oldStats.hero2.powerstats.power / 2)) * (oldStats.hero2.powerstats.combat / 50)) - (oldStats.hero1.powerstats.durability / 10));
+	// let attack1 = Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10));
+
+	// if (attack2 <= 50) {
+	// 	attack2 = 50;
+	// }
+	// if (Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) <= 50) {
+	// 	Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) = 50;
+	// }
+
+	// if (attack2 >= 200) {
+	// 	attack2 = 200;
+	// }
+	// if (Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) >= 200) {
+	// 	Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) = 200;
+	// }
+
+	oldStats.hero1.powerstats.life -= Math.floor(Math.floor(((oldStats.hero2.powerstats.strength + (oldStats.hero2.powerstats.power / 2)) * (oldStats.hero2.powerstats.combat / 50)) - (oldStats.hero1.powerstats.durability / 10)) * randomNumber2);
+	oldStats.hero2.powerstats.life -= Math.floor(Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) * randomNumber1);
+
+	if (oldStats.hero1.powerstats.life < 0) {
+		oldStats.hero1.powerstats.life = 0;
+	}
+
+	if (oldStats.hero2.powerstats.life < 0) {
+		oldStats.hero2.powerstats.life = 0;
+	}
 
 	// ---------- TESTS
 
-	console.log(oldStats.hero1.powerstats.life);
-	console.log(oldStats.hero2.powerstats.strength);
-	console.log(oldStats.hero2.powerstats.life);
-	console.log(oldStats.hero1.powerstats.strength);
+	console.log('life hero1 ' + oldStats.hero1.powerstats.life);
+	console.log('Attaque hero2 ' + Math.floor(Math.floor(((oldStats.hero2.powerstats.strength + (oldStats.hero2.powerstats.power / 2)) * (oldStats.hero2.powerstats.combat / 50)) - (oldStats.hero1.powerstats.durability / 10)) * randomNumber2));
+	console.log('life hero2 ' + oldStats.hero2.powerstats.life);
+	console.log('Attaque hero1 ' + Math.floor(Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) * randomNumber1));
 
 	// ---------- TESTS
 

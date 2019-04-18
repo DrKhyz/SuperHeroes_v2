@@ -8,7 +8,7 @@ const CardLife = props => {
 			<Progress
 				color='success'
 				value={props.powerstats.life}
-				max={props.powerstats.durability}
+				max={(parseInt(props.powerstats.durability) + parseInt(props.powerstats.intelligence)) * (parseInt(props.powerstats.speed) / 10)}
 				className={styles.card_life}
 			/>
 		</div>

@@ -89,13 +89,13 @@ class App extends Component {
 						id: data.id,
 						name: data.name,
 						powerstats: {
-							intelligence: data.powerstats.intelligence,
+							intelligence: parseInt(data.powerstats.intelligence),
 							strength: parseInt(data.powerstats.strength),
-							speed: data.powerstats.speed,
-							durability: data.powerstats.durability,
-							power: data.powerstats.power,
-							combat: data.powerstats.combat,
-							life: parseInt(data.powerstats.durability)
+							speed: parseInt(data.powerstats.speed),
+							durability: parseInt(data.powerstats.durability),
+							power: parseInt(data.powerstats.power),
+							combat: parseInt(data.powerstats.combat),
+							life: Math.floor((parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) * (data.powerstats.speed / 10))
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
@@ -128,13 +128,13 @@ class App extends Component {
 						id: data.id,
 						name: data.name,
 						powerstats: {
-							intelligence: data.powerstats.intelligence,
+							intelligence: parseInt(data.powerstats.intelligence),
 							strength: parseInt(data.powerstats.strength),
-							speed: data.powerstats.speed,
-							durability: data.powerstats.durability,
-							power: data.powerstats.power,
-							combat: data.powerstats.combat,
-							life: parseInt(data.powerstats.durability)
+							speed: parseInt(data.powerstats.speed),
+							durability: parseInt(data.powerstats.durability),
+							power: parseInt(data.powerstats.power),
+							combat: parseInt(data.powerstats.combat),
+							life: Math.floor((parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) * (data.powerstats.speed / 10))
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
