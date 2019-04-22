@@ -1,22 +1,8 @@
 import React from 'react';
+
 let counter;
 
 const AlgoCombat = oldStats => {
-	// let intelligence1 = oldStats.hero1.powerstats.intelligence
-	// let strength1 = oldStats.hero1.powerstats.strength
-	// let speed1 = oldStats.hero1.powerstats.speed
-	// let durability1 = oldStats.hero1.powerstats.durability
-	// let power1 = oldStats.hero1.powerstats.power
-	// let combat1 = oldStats.hero1.powerstats.combat
-	// let life1 = oldStats.hero1.powerstats.life
-
-	// let intelligence2 = oldStats.hero2.powerstats.intelligence
-	// let strength2 = oldStats.hero2.powerstats.strength
-	// let speed2 = oldStats.hero2.powerstats.speed
-	// let durability2 = oldStats.hero2.powerstats.durability
-	// let power2 = oldStats.hero2.powerstats.power
-	// let combat2 = oldStats.hero2.powerstats.combat
-	// let life2 = oldStats.hero2.powerstats.life
 
 	// if (Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) <= 50) {
 	// 	Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) = 50;
@@ -26,7 +12,6 @@ const AlgoCombat = oldStats => {
 	// 	Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) = 200;
 	// }
 
-
 	// ----- ALGO COMBAT
 
 	const min = 1;
@@ -35,7 +20,8 @@ const AlgoCombat = oldStats => {
 	let randomNumber2;
 	let attack1;
 	let attack2;
-	console.log(counter);
+	let lifeMax1 = (parseInt(oldStats.hero1.powerstats.durability) + parseInt(oldStats.hero1.powerstats.intelligence)) * (parseInt(oldStats.hero1.powerstats.speed) / 10);
+	let lifeMax2 = (parseInt(oldStats.hero2.powerstats.durability) + parseInt(oldStats.hero2.powerstats.intelligence)) * (parseInt(oldStats.hero2.powerstats.speed) / 10);
 
 	// ALTERNER LES ATTAQUE 										**DONE**
 	// CHANGER LA BARRE DE COULEUR.									**TODO**
@@ -87,7 +73,26 @@ const AlgoCombat = oldStats => {
 		counter = 0;
 	}
 
+	// CHANGE LA COULEUR DE LA BARRE DE VIE
+
+	if (oldStats.hero1.powerstats.life < (lifeMax1 / 1.5)) {
+		oldStats.hero1.powerstats.barColor = 'warning';
+	}
+
+	if (oldStats.hero1.powerstats.life < (lifeMax1 / 4)) {
+		oldStats.hero1.powerstats.barColor = 'danger';
+	}
+
+	if (oldStats.hero2.powerstats.life < (lifeMax2 / 1.5)) {
+		oldStats.hero2.powerstats.barColor = 'warning';
+	}
+
+	if (oldStats.hero2.powerstats.life < (lifeMax2 / 4)) {
+		oldStats.hero2.powerstats.barColor = 'danger';
+	}
+
 	// MET LA VIE DU HEROS A 0 LORSQUE LES DEGATS SONT SUPERIEURS A LA VIE RESTANTE.
+
 
 	if (oldStats.hero1.powerstats.life < 0) {
 		oldStats.hero1.powerstats.life = 0;
@@ -117,7 +122,8 @@ const AlgoCombat = oldStats => {
 				durability: oldStats.hero1.powerstats.durability,
 				power: oldStats.hero1.powerstats.power,
 				combat: oldStats.hero1.powerstats.combat,
-				life: oldStats.hero1.powerstats.life
+				life: oldStats.hero1.powerstats.life,
+				barColor: oldStats.hero1.powerstats.barColor
 			},
 			biography: {
 				...oldStats.hero1.biography
@@ -140,7 +146,8 @@ const AlgoCombat = oldStats => {
 				durability: oldStats.hero2.powerstats.durability,
 				power: oldStats.hero2.powerstats.power,
 				combat: oldStats.hero2.powerstats.combat,
-				life: oldStats.hero2.powerstats.life
+				life: oldStats.hero2.powerstats.life,
+				barColor: oldStats.hero2.powerstats.barColor
 			},
 			biography: {
 				...oldStats.hero2.biography

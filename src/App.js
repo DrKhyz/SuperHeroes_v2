@@ -22,7 +22,8 @@ class App extends Component {
 					durability: '',
 					power: '',
 					combat: '',
-					life: ''
+					life: '',
+					barColor: ''
 				},
 				biography: {
 					'full-name': '',
@@ -47,7 +48,8 @@ class App extends Component {
 					durability: '',
 					power: '',
 					combat: '',
-					life: ''
+					life: '',
+					barColor: ''
 				},
 				biography: {
 					'full-name': '',
@@ -96,7 +98,8 @@ class App extends Component {
 							durability: parseInt(data.powerstats.durability),
 							power: parseInt(data.powerstats.power),
 							combat: parseInt(data.powerstats.combat),
-							life: Math.floor((parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) * (data.powerstats.speed / 10))
+							life: Math.floor((parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) * (data.powerstats.speed / 10)),
+							barColor: 'success'
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
@@ -135,7 +138,8 @@ class App extends Component {
 							durability: parseInt(data.powerstats.durability),
 							power: parseInt(data.powerstats.power),
 							combat: parseInt(data.powerstats.combat),
-							life: Math.floor((parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) * (data.powerstats.speed / 10))
+							life: Math.floor((parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) * (data.powerstats.speed / 10)),
+							barColor: 'success'
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
