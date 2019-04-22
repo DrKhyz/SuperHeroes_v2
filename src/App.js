@@ -23,7 +23,7 @@ class App extends Component {
 					power: '',
 					combat: '',
 					life: '',
-					barColor: ''
+					barColor: '',
 				},
 				biography: {
 					'full-name': '',

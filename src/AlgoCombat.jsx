@@ -24,7 +24,9 @@ const AlgoCombat = oldStats => {
 	let lifeMax2 = (parseInt(oldStats.hero2.powerstats.durability) + parseInt(oldStats.hero2.powerstats.intelligence)) * (parseInt(oldStats.hero2.powerstats.speed) / 10);
 
 	// ALTERNER LES ATTAQUE 										**DONE**
-	// CHANGER LA BARRE DE COULEUR.									**TODO**
+	// CHANGER LA BARRE DE COULEUR.									**DONE**
+
+	// GENERER LES STARS EN FONCTION DES STATS DU HEROS				**TODO**
 	// ARRETER L'ALGO LORSQUE L'UN DES HEROS N'A PLUS DE VIE.		**TODO**
 	// GENERER DES STATS AU HASARD LORSQUE L'API N'EN FOURNIS PAS.	**TODO**
 
@@ -72,7 +74,6 @@ const AlgoCombat = oldStats => {
 	} else {
 		counter = 0;
 	}
-
 	// CHANGE LA COULEUR DE LA BARRE DE VIE
 
 	if (oldStats.hero1.powerstats.life < (lifeMax1 / 1.5)) {
@@ -101,6 +102,7 @@ const AlgoCombat = oldStats => {
 	if (oldStats.hero2.powerstats.life < 0) {
 		oldStats.hero2.powerstats.life = 0;
 	}
+
 
 	// ---------- TESTS
 
