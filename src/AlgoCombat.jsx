@@ -1,4 +1,5 @@
 import React from 'react';
+let counter;
 
 const AlgoCombat = oldStats => {
 	// let intelligence1 = oldStats.hero1.powerstats.intelligence
@@ -17,47 +18,76 @@ const AlgoCombat = oldStats => {
 	// let combat2 = oldStats.hero2.powerstats.combat
 	// let life2 = oldStats.hero2.powerstats.life
 
-	console.log('combat');
+	// if (Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) <= 50) {
+	// 	Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) = 50;
+	// }
+
+	// if (Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) >= 200) {
+	// 	Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) = 200;
+	// }
+
 
 	// ----- ALGO COMBAT
-
-
 
 	const min = 1;
 	const max = 1.8;
 	let randomNumber1;
 	let randomNumber2;
-	// let result = ((Math.random() * (max - min)) + min).toFixed(2);
+	let attack1;
+	let attack2;
+	console.log(counter);
 
-	// console.log(result);
-
-	//GENERER LES ATTAQUES DANS LA BOUCLES!!!
+	// ALTERNER LES ATTAQUE 										**DONE**
+	// CHANGER LA BARRE DE COULEUR.									**TODO**
+	// ARRETER L'ALGO LORSQUE L'UN DES HEROS N'A PLUS DE VIE.		**TODO**
+	// GENERER DES STATS AU HASARD LORSQUE L'API N'EN FOURNIS PAS.	**TODO**
 
 	for (let i = 0; i < 1; i++) {
 		randomNumber1 = ((Math.random() * (max - min)) + min).toFixed(2);
 		randomNumber2 = ((Math.random() * (max - min)) + min).toFixed(2);
+		attack1 = Math.floor(Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) * randomNumber1)
+		attack2 = Math.floor(Math.floor(((oldStats.hero2.powerstats.strength + (oldStats.hero2.powerstats.power / 2)) * (oldStats.hero2.powerstats.combat / 50)) - (oldStats.hero1.powerstats.durability / 10)) * randomNumber2)
 	}
 
+	// GERE LA PLAGE DE DEGAT MINI ET MAXI DES HEROS.
 
-	// let attack2 = Math.floor(((oldStats.hero2.powerstats.strength + (oldStats.hero2.powerstats.power / 2)) * (oldStats.hero2.powerstats.combat / 50)) - (oldStats.hero1.powerstats.durability / 10));
-	// let attack1 = Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10));
+	if (attack2 <= 50) {
+		attack2 = Math.floor(50 * randomNumber2);
+	}
+	if (attack2 >= 200) {
+		attack2 = Math.floor(200 * randomNumber2);
+	}
+	if (attack1 <= 50) {
+		attack1 = Math.floor(50 * randomNumber1);
+	}
+	if (attack1 >= 200) {
+		attack1 = Math.floor(200 * randomNumber1);
+	}
 
-	// if (attack2 <= 50) {
-	// 	attack2 = 50;
-	// }
-	// if (Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) <= 50) {
-	// 	Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) = 50;
-	// }
+	// ALTERNE LES ATTAQUES DES HEROS.
 
-	// if (attack2 >= 200) {
-	// 	attack2 = 200;
-	// }
-	// if (Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) >= 200) {
-	// 	Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) = 200;
-	// }
+	const attaqueTourParTout = (count) => {
+		if (count === 0) {
+			return oldStats.hero2.powerstats.life -= attack1;
+		}
+		if (count === 1) {
+			return oldStats.hero1.powerstats.life -= attack2;
+		}
+	}
 
-	oldStats.hero1.powerstats.life -= Math.floor(Math.floor(((oldStats.hero2.powerstats.strength + (oldStats.hero2.powerstats.power / 2)) * (oldStats.hero2.powerstats.combat / 50)) - (oldStats.hero1.powerstats.durability / 10)) * randomNumber2);
-	oldStats.hero2.powerstats.life -= Math.floor(Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) * randomNumber1);
+	if (counter === undefined) {
+		counter = Math.floor(Math.random() * Math.floor(2))
+	}
+
+	attaqueTourParTout(counter)
+
+	if (counter === 0) {
+		counter = 1;
+	} else {
+		counter = 0;
+	}
+
+	// MET LA VIE DU HEROS A 0 LORSQUE LES DEGATS SONT SUPERIEURS A LA VIE RESTANTE.
 
 	if (oldStats.hero1.powerstats.life < 0) {
 		oldStats.hero1.powerstats.life = 0;
@@ -70,9 +100,9 @@ const AlgoCombat = oldStats => {
 	// ---------- TESTS
 
 	console.log('life hero1 ' + oldStats.hero1.powerstats.life);
-	console.log('Attaque hero2 ' + Math.floor(Math.floor(((oldStats.hero2.powerstats.strength + (oldStats.hero2.powerstats.power / 2)) * (oldStats.hero2.powerstats.combat / 50)) - (oldStats.hero1.powerstats.durability / 10)) * randomNumber2));
+	console.log('Attaque hero2 ' + attack2);
 	console.log('life hero2 ' + oldStats.hero2.powerstats.life);
-	console.log('Attaque hero1 ' + Math.floor(Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) * randomNumber1));
+	console.log('Attaque hero1 ' + attack1);
 
 	// ---------- TESTS
 

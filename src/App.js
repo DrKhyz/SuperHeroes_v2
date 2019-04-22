@@ -83,6 +83,7 @@ class App extends Component {
 		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt1(720)}`)
 			.then(response => response.json())
 			.then(data => {
+				// data.powerstats.intelligence === NaN ? data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) : 0;
 				this.setState({
 					isLoading: false,
 					hero1: {
