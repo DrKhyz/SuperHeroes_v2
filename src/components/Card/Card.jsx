@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Background from './Background/Background';
-import CardLife from '../CardLife/CardLife';
 import CardStats from '../CardStats/CardStats';
 import CardName from '../CardName/CardName';
 import './Card.css';

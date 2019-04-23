@@ -1,17 +1,8 @@
-import React from 'react'
-
 let counter
 
 const AlgoCombat = oldStats => {
-	// if (Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) <= 50) {
-	// 	Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) = 50;
-	// }
 
-	// if (Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) >= 200) {
-	// 	Math.floor(((oldStats.hero1.powerstats.strength + (oldStats.hero1.powerstats.power / 2)) * (oldStats.hero1.powerstats.combat / 50)) - (oldStats.hero2.powerstats.durability / 10)) = 200;
-	// }
-
-	// ----- ALGO COMBAT
+	// DECLARATION DES VARIABLES UTILISEES DANS L'ALGORITHME DE COMBAT
 
 	const min = 1
 	const max = 1.8
@@ -28,48 +19,28 @@ const AlgoCombat = oldStats => {
 			parseInt(oldStats.hero2.powerstats.intelligence)) *
 		(parseInt(oldStats.hero2.powerstats.speed) / 10)
 
-	// ALTERNER LES ATTAQUE 										**DONE**
-	// CHANGER LA BARRE DE COULEUR.									**DONE**
-
-	// GENERER LES STARS EN FONCTION DES STATS DU HEROS				**TODO**
-
-	/* ARRETER L'ALGO LORSQUE L'UN DES HEROS N'A PLUS DE VIE
-	   ET RETOURNER LE NOM DU VAINQUEUR.							**TODO** */
-
-	// GENERER DES STATS AU HASARD LORSQUE L'API N'EN FOURNIS PAS.	**TODO**
+	// GENERE LES ATTAQUES DES HEROS
 
 	for (let i = 0; i < 1; i++) {
 		randomNumber1 = (Math.random() * (max - min) + min).toFixed(2)
 		randomNumber2 = (Math.random() * (max - min) + min).toFixed(2)
-		attack1 = Math.floor(
-			Math.floor(
-				(oldStats.hero1.powerstats.strength + oldStats.hero1.powerstats.power / 2) *
-					(oldStats.hero1.powerstats.combat / 50) -
-					oldStats.hero2.powerstats.durability / 10,
-			) * randomNumber1,
-		)
-		attack2 = Math.floor(
-			Math.floor(
-				(oldStats.hero2.powerstats.strength + oldStats.hero2.powerstats.power / 2) *
-					(oldStats.hero2.powerstats.combat / 50) -
-					oldStats.hero1.powerstats.durability / 10,
-			) * randomNumber2,
-		)
+		attack1 = Math.floor(((oldStats.hero1.powerstats.strength + oldStats.hero1.powerstats.power / 2) * (oldStats.hero1.powerstats.combat / 50) - oldStats.hero2.powerstats.durability / 10) * randomNumber1)
+		attack2 = Math.floor(((oldStats.hero2.powerstats.strength + oldStats.hero2.powerstats.power / 2) * (oldStats.hero2.powerstats.combat / 50) - oldStats.hero1.powerstats.durability / 10) * randomNumber2)
 	}
 
 	// GERE LA PLAGE DE DEGAT MINI ET MAXI DES HEROS.
 
 	if (attack2 <= 50) {
-		attack2 = Math.floor(50 * randomNumber2)
+		attack2 = Math.floor(Math.random() * (80 - 50) + 50)
 	}
 	if (attack2 >= 200) {
-		attack2 = Math.floor(200 * randomNumber2)
+		attack2 = Math.floor(Math.random() * (205 - 155) + 155)
 	}
 	if (attack1 <= 50) {
-		attack1 = Math.floor(50 * randomNumber1)
+		attack1 = Math.floor(Math.random() * (80 - 50) + 50)
 	}
 	if (attack1 >= 200) {
-		attack1 = Math.floor(200 * randomNumber1)
+		attack1 = Math.floor(Math.random() * (205 - 155) + 155)
 	}
 
 	// ALTERNE LES ATTAQUES DES HEROS.

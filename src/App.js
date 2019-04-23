@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import Card from './components/Card/Card'
 import ButtonRandomHero from './components/Buttons/ButtonRandomHero'
-import ButtonFight from './components/Buttons/ButtonFight'
 import AlgoCombat from './AlgoCombat'
 import './App.css'
-import { Spinner, Container, Row, Col, Progress } from 'reactstrap'
+import { Spinner } from 'reactstrap'
 import ImgVS from './components/ImgVS/ImgVS'
 
 class App extends Component {
@@ -86,7 +85,12 @@ class App extends Component {
 		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt1(720)}`)
 			.then(response => response.json())
 			.then(data => {
-				// data.powerstats.intelligence === NaN ? data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) : 0;
+				if (data.powerstats.intelligence === 'null') { data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.strength === 'null') { data.powerstats.strength = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.speed === 'null') { data.powerstats.speed = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.durability === 'null') { data.powerstats.durability = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.power === 'null') { data.powerstats.power = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.combat === 'null') { data.powerstats.combat = Math.floor(Math.random() * Math.floor(101)) }
 				this.setState({
 					isLoading: false,
 					winner: '',
@@ -102,7 +106,7 @@ class App extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10),
+								(data.powerstats.speed / 10),
 							),
 							barColor: 'success',
 						},
@@ -120,6 +124,8 @@ class App extends Component {
 						image: data.image,
 					},
 				})
+
+
 			})
 	}
 
@@ -131,6 +137,12 @@ class App extends Component {
 		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt2(720)}`)
 			.then(response => response.json())
 			.then(data => {
+				if (data.powerstats.intelligence === 'null') { data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.strength === 'null') { data.powerstats.strength = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.speed === 'null') { data.powerstats.speed = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.durability === 'null') { data.powerstats.durability = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.power === 'null') { data.powerstats.power = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.combat === 'null') { data.powerstats.combat = Math.floor(Math.random() * Math.floor(101)) }
 				this.setState({
 					isLoading: false,
 					winner: '',
@@ -146,7 +158,7 @@ class App extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10),
+								(data.powerstats.speed / 10),
 							),
 							barColor: 'success',
 						},
@@ -203,23 +215,16 @@ class App extends Component {
 					/>
 					{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
 						<div>
-							'Le gagnant est :'{' '}
+							Le gagnant est :
 							{
 								this.state.winner
-								// if(this.state.hero1.winner){
-								// 	this.state.hero1.name
-								// }else if( this.state.hero2.winner){
-								// 			this.state.hero2.name
-								// }else{
-								// 	''
-								// }
 							}
 						</div>
 					) : (
-						<button onClick={() => this.ClickCombat()} color='danger'>
-							Fight !
+							<button onClick={() => this.ClickCombat()} color='danger'>
+								Fight !
 						</button>
-					)}
+						)}
 				</div>
 				<Card {...this.state.hero2} />
 			</div>
