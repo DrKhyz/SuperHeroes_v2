@@ -4,7 +4,6 @@ import CardLife from '../CardLife/CardLife';
 import CardStats from '../CardStats/CardStats';
 import CardName from '../CardName/CardName';
 import './Card.css';
-import { Spinner, Container, Row, Col } from 'reactstrap';
 
 const Card = props => {
 	return (

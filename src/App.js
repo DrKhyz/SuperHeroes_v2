@@ -4,7 +4,7 @@ import ButtonRandomHero from './components/Buttons/ButtonRandomHero';
 import ButtonFight from './components/Buttons/ButtonFight';
 import AlgoCombat from './AlgoCombat';
 import './App.css';
-import { Spinner, Container, Row, Col } from 'reactstrap';
+import { Spinner, Container, Row, Col, Progress } from 'reactstrap';
 import ImgVS from './components/ImgVS/ImgVS';
 
 class App extends Component {
@@ -22,7 +22,8 @@ class App extends Component {
 					durability: '',
 					power: '',
 					combat: '',
-					life: ''
+					life: '',
+					barColor: '',
 				},
 				biography: {
 					'full-name': '',
@@ -47,7 +48,8 @@ class App extends Component {
 					durability: '',
 					power: '',
 					combat: '',
-					life: ''
+					life: '',
+					barColor: ''
 				},
 				biography: {
 					'full-name': '',
@@ -83,19 +85,21 @@ class App extends Component {
 		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt1(720)}`)
 			.then(response => response.json())
 			.then(data => {
+				// data.powerstats.intelligence === NaN ? data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) : 0;
 				this.setState({
 					isLoading: false,
 					hero1: {
 						id: data.id,
 						name: data.name,
 						powerstats: {
-							intelligence: data.powerstats.intelligence,
+							intelligence: parseInt(data.powerstats.intelligence),
 							strength: parseInt(data.powerstats.strength),
-							speed: data.powerstats.speed,
-							durability: data.powerstats.durability,
-							power: data.powerstats.power,
-							combat: data.powerstats.combat,
-							life: parseInt(data.powerstats.durability)
+							speed: parseInt(data.powerstats.speed),
+							durability: parseInt(data.powerstats.durability),
+							power: parseInt(data.powerstats.power),
+							combat: parseInt(data.powerstats.combat),
+							life: Math.floor((parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) * (data.powerstats.speed / 10)),
+							barColor: 'success'
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
@@ -128,13 +132,14 @@ class App extends Component {
 						id: data.id,
 						name: data.name,
 						powerstats: {
-							intelligence: data.powerstats.intelligence,
+							intelligence: parseInt(data.powerstats.intelligence),
 							strength: parseInt(data.powerstats.strength),
-							speed: data.powerstats.speed,
-							durability: data.powerstats.durability,
-							power: data.powerstats.power,
-							combat: data.powerstats.combat,
-							life: parseInt(data.powerstats.durability)
+							speed: parseInt(data.powerstats.speed),
+							durability: parseInt(data.powerstats.durability),
+							power: parseInt(data.powerstats.power),
+							combat: parseInt(data.powerstats.combat),
+							life: Math.floor((parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) * (data.powerstats.speed / 10)),
+							barColor: 'success'
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
