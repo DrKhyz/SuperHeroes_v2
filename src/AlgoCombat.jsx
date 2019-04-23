@@ -31,19 +31,15 @@ const AlgoCombat = oldStats => {
 	// GERE LA PLAGE DE DEGAT MINI ET MAXI DES HEROS.
 
 	if (attack2 <= 50) {
-		console.log('je suis attack2 <')
 		attack2 = Math.floor(Math.random() * (80 - 50) + 50)
 	}
 	if (attack2 >= 200) {
-		console.log('je suis attack2 >')
 		attack2 = Math.floor(Math.random() * (205 - 155) + 155)
 	}
 	if (attack1 <= 50) {
-		console.log('je suis attack1 <')
 		attack1 = Math.floor(Math.random() * (80 - 50) + 50)
 	}
 	if (attack1 >= 200) {
-		console.log('je suis attack1 >')
 		attack1 = Math.floor(Math.random() * (205 - 155) + 155)
 	}
 
@@ -102,9 +98,9 @@ const AlgoCombat = oldStats => {
 
 	// ---------- TESTS
 
-	// console.log('life hero1 ' + oldStats.hero1.powerstats.life)
+	console.log('life hero1 ' + oldStats.hero1.powerstats.life)
 	console.log('Attaque hero2 ' + attack2)
-	// console.log('life hero2 ' + oldStats.hero2.powerstats.life)
+	console.log('life hero2 ' + oldStats.hero2.powerstats.life)
 	console.log('Attaque hero1 ' + attack1)
 
 	// ---------- TESTS
