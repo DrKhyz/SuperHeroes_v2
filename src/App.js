@@ -215,7 +215,7 @@ class App extends Component {
 					/>
 					{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
 						<div>
-							Le gagnant est :{' '}
+							Le gagnant est :
 							{
 								this.state.winner
 							}
