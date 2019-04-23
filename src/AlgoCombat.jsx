@@ -67,6 +67,7 @@ const AlgoCombat = oldStats => {
 		counter = Math.floor(Math.random() * Math.floor(2))
 	}
 
+
 	attaqueTourParTout(counter)
 
 	if (counter === 0) {
@@ -74,6 +75,7 @@ const AlgoCombat = oldStats => {
 	} else {
 		counter = 0;
 	}
+
 	// CHANGE LA COULEUR DE LA BARRE DE VIE
 
 	if (oldStats.hero1.powerstats.life < (lifeMax1 / 1.5)) {
