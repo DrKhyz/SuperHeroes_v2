@@ -85,12 +85,12 @@ class App extends Component {
 		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt1(720)}`)
 			.then(response => response.json())
 			.then(data => {
-				data.powerstats.intelligence === 'null' ? data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.intelligence = data.powerstats.intelligence
-				data.powerstats.strength === 'null' ? data.powerstats.strength = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.strength = data.powerstats.strength
-				data.powerstats.speed === 'null' ? data.powerstats.speed = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.speed = data.powerstats.speed
-				data.powerstats.durability === 'null' ? data.powerstats.durability = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.durability = data.powerstats.durability
-				data.powerstats.power === 'null' ? data.powerstats.power = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.power = data.powerstats.power
-				data.powerstats.combat === 'null' ? data.powerstats.combat = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.combat = data.powerstats.combat
+				if (data.powerstats.intelligence === 'null') { data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.strength === 'null') { data.powerstats.strength = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.speed === 'null') { data.powerstats.speed = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.durability === 'null') { data.powerstats.durability = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.power === 'null') { data.powerstats.power = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.combat === 'null') { data.powerstats.combat = Math.floor(Math.random() * Math.floor(101)) }
 				this.setState({
 					isLoading: false,
 					winner: '',
@@ -137,12 +137,12 @@ class App extends Component {
 		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt2(720)}`)
 			.then(response => response.json())
 			.then(data => {
-				data.powerstats.intelligence === 'null' ? data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.intelligence = data.powerstats.intelligence
-				data.powerstats.strength === 'null' ? data.powerstats.strength = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.strength = data.powerstats.strength
-				data.powerstats.speed === 'null' ? data.powerstats.speed = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.speed = data.powerstats.speed
-				data.powerstats.durability === 'null' ? data.powerstats.durability = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.durability = data.powerstats.durability
-				data.powerstats.power === 'null' ? data.powerstats.power = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.power = data.powerstats.power
-				data.powerstats.combat === 'null' ? data.powerstats.combat = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.combat = data.powerstats.combat
+				if (data.powerstats.intelligence === 'null') { data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.strength === 'null') { data.powerstats.strength = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.speed === 'null') { data.powerstats.speed = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.durability === 'null') { data.powerstats.durability = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.power === 'null') { data.powerstats.power = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.combat === 'null') { data.powerstats.combat = Math.floor(Math.random() * Math.floor(101)) }
 				this.setState({
 					isLoading: false,
 					winner: '',
