@@ -1,5 +1,7 @@
 import React from 'react';
 import './CardStars.css';
+import SingleFilledStar from './SingleStars/SingleFilledStar';
+import SingleEmptyStar from './SingleStars/SingleEmptyStar';
 
 const CardStars = (props) => {
 	let int = parseInt(props.powerstats.intelligence);
@@ -11,56 +13,56 @@ const CardStars = (props) => {
 	let average = (int + str + spd + end + pow + cbt) / 6;
 	if (average >= 0 && average <= 19) {
 		return <div className='stars'>
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
+			<SingleFilledStar />
+			<SingleEmptyStar />
+			<SingleEmptyStar />
+			<SingleEmptyStar />
+			<SingleEmptyStar />
 		</div>
 	}
 	if (average >= 20 && average <= 39) {
 		return <div className='stars'>
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
+			<SingleFilledStar />
+			<SingleFilledStar />
+			<SingleEmptyStar />
+			<SingleEmptyStar />
+			<SingleEmptyStar />
 		</div>
 	}
 	if (average >= 40 && average <= 59) {
 		return <div className='stars'>
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
+			<SingleFilledStar />
+			<SingleFilledStar />
+			<SingleFilledStar />
+			<SingleEmptyStar />
+			<SingleEmptyStar />
 		</div>
 	}
 	if (average >= 60 && average <= 79) {
 		return <div className='stars'>
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
+			<SingleFilledStar />
+			<SingleFilledStar />
+			<SingleFilledStar />
+			<SingleFilledStar />
+			<SingleEmptyStar />
 		</div>
 	}
 	if (average >= 80 && average <= 100) {
 		return <div className='stars'>
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
-			<img src='https://img.icons8.com/color/32/000000/filled-star.png' alt='filled star' />
+			<SingleFilledStar />
+			<SingleFilledStar />
+			<SingleFilledStar />
+			<SingleFilledStar />
+			<SingleFilledStar />
 		</div>
 	}
 	return (
 		<div className='stars'>
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
-			<img src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
+			<SingleEmptyStar />
+			<SingleEmptyStar />
+			<SingleEmptyStar />
+			<SingleEmptyStar />
+			<SingleEmptyStar />
 		</div>
 	)
 };
