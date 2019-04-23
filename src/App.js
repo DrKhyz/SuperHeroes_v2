@@ -86,7 +86,6 @@ class App extends Component {
 		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt1(720)}`)
 			.then(response => response.json())
 			.then(data => {
-				// data.powerstats.intelligence === NaN ? data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) : 0;
 				this.setState({
 					isLoading: false,
 					winner: '',
@@ -102,7 +101,7 @@ class App extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10),
+								(data.powerstats.speed / 10),
 							),
 							barColor: 'success',
 						},
@@ -146,7 +145,7 @@ class App extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10),
+								(data.powerstats.speed / 10),
 							),
 							barColor: 'success',
 						},
@@ -206,20 +205,13 @@ class App extends Component {
 							'Le gagnant est :'{' '}
 							{
 								this.state.winner
-								// if(this.state.hero1.winner){
-								// 	this.state.hero1.name
-								// }else if( this.state.hero2.winner){
-								// 			this.state.hero2.name
-								// }else{
-								// 	''
-								// }
 							}
 						</div>
 					) : (
-						<button onClick={() => this.ClickCombat()} color='danger'>
-							Fight !
+							<button onClick={() => this.ClickCombat()} color='danger'>
+								Fight !
 						</button>
-					)}
+						)}
 				</div>
 				<Card {...this.state.hero2} />
 			</div>
