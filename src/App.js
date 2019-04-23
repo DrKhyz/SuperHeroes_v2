@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import Card from './components/Card/Card'
 import ButtonRandomHero from './components/Buttons/ButtonRandomHero'
-import ButtonFight from './components/Buttons/ButtonFight'
 import AlgoCombat from './AlgoCombat'
 import './App.css'
-import { Spinner, Container, Row, Col, Progress } from 'reactstrap'
+import { Spinner } from 'reactstrap'
 import ImgVS from './components/ImgVS/ImgVS'
 
 class App extends Component {
@@ -86,6 +85,12 @@ class App extends Component {
 		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt1(720)}`)
 			.then(response => response.json())
 			.then(data => {
+				data.powerstats.intelligence === 'null' ? data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.intelligence = data.powerstats.intelligence
+				data.powerstats.strength === 'null' ? data.powerstats.strength = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.strength = data.powerstats.strength
+				data.powerstats.speed === 'null' ? data.powerstats.speed = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.speed = data.powerstats.speed
+				data.powerstats.durability === 'null' ? data.powerstats.durability = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.durability = data.powerstats.durability
+				data.powerstats.power === 'null' ? data.powerstats.power = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.power = data.powerstats.power
+				data.powerstats.combat === 'null' ? data.powerstats.combat = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.combat = data.powerstats.combat
 				this.setState({
 					isLoading: false,
 					winner: '',
@@ -119,6 +124,8 @@ class App extends Component {
 						image: data.image,
 					},
 				})
+
+
 			})
 	}
 
@@ -130,6 +137,12 @@ class App extends Component {
 		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt2(720)}`)
 			.then(response => response.json())
 			.then(data => {
+				data.powerstats.intelligence === 'null' ? data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.intelligence = data.powerstats.intelligence
+				data.powerstats.strength === 'null' ? data.powerstats.strength = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.strength = data.powerstats.strength
+				data.powerstats.speed === 'null' ? data.powerstats.speed = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.speed = data.powerstats.speed
+				data.powerstats.durability === 'null' ? data.powerstats.durability = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.durability = data.powerstats.durability
+				data.powerstats.power === 'null' ? data.powerstats.power = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.power = data.powerstats.power
+				data.powerstats.combat === 'null' ? data.powerstats.combat = Math.floor(Math.random() * Math.floor(101)) : data.powerstats.combat = data.powerstats.combat
 				this.setState({
 					isLoading: false,
 					winner: '',
@@ -202,7 +215,7 @@ class App extends Component {
 					/>
 					{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
 						<div>
-							'Le gagnant est :'{' '}
+							Le gagnant est :{' '}
 							{
 								this.state.winner
 							}
