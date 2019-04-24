@@ -85,7 +85,10 @@ class App extends Component {
 		fetch(`https://superheroapi.com/api.php/2427014800851400/${getRandomInt1(720)}`)
 			.then(response => response.json())
 			.then(data => {
-				if (data.powerstats.intelligence === 'null') { data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101)) }
+				if (data.powerstats.intelligence === 'null') {
+					data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101))
+					console.log('Stats généré aléatoirement')
+				}
 				if (data.powerstats.strength === 'null') { data.powerstats.strength = Math.floor(Math.random() * Math.floor(101)) }
 				if (data.powerstats.speed === 'null') { data.powerstats.speed = Math.floor(Math.random() * Math.floor(101)) }
 				if (data.powerstats.durability === 'null') { data.powerstats.durability = Math.floor(Math.random() * Math.floor(101)) }
