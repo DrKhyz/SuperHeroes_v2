@@ -10,7 +10,7 @@ const CardStars = (props) => {
 	let end = parseInt(props.powerstats.durability);
 	let pow = parseInt(props.powerstats.power);
 	let cbt = parseInt(props.powerstats.combat);
-	let average = (int + str + spd + end + pow + cbt) / 6;
+	let average = Math.floor((int + str + spd + end + pow + cbt) / 6);
 	if (average >= 0 && average <= 19) {
 		return <div className='stars'>
 			<SingleFilledStar />
