@@ -9,7 +9,6 @@ class SelectHero extends Component {
 			heroStore: [],
 			loadingHeroStore: true,
 		}
-		this.handleChange = this.handleChange.bind(this)
 	}
 
 	handleChange = e => {
@@ -25,6 +24,14 @@ class SelectHero extends Component {
 		e.preventDefault()
 	}
 
+	selectHero = e => {
+		this.setState({ hero1: this.state.heroStore[e.target.id] })
+	}
+
+	resetHero = () => {
+		this.setState({ hero1: null, search: '', heroStore: [] })
+	}
+
 	render() {
 		return (
 			<div>
@@ -38,11 +45,20 @@ class SelectHero extends Component {
 					/>
 					<button type='submit'>Submit</button>
 				</form>
-				<div className='d-flex flex-wrap flex-start m-5'>
-					{this.state.loadingHeroStore
-						? ''
-						: this.state.heroStore.map(heroProps => <Card {...heroProps} />)}
-				</div>
+				<button onClick={this.resetHero}>Reset</button>
+				{this.state.hero1 ? (
+					<Card {...this.state.hero1} />
+				) : (
+					<div className='d-flex flex-wrap m-5'>
+						{this.state.loadingHeroStore
+							? ''
+							: this.state.heroStore.map((heroProps, i) => (
+									<div onClick={this.selectHero} key={i} id={i}>
+										<Card {...heroProps} />
+									</div>
+							  ))}
+					</div>
+				)}
 			</div>
 		)
 	}
