@@ -1,5 +1,8 @@
 .cardContainer {
-	margin-top: 5%;
+	position: relative;
 	display: flex;
 	flex-direction: column;
+	width: 26%;
+	margin: 5px;
+	border: 1px blue dotted;
 }
