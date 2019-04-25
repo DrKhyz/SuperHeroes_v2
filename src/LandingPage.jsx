@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { CardGroup, Card, CardImg, CardText, CardBody, Button, Col } from 'reactstrap';
 import arenaD from './arenaD.jpg';
-import Caroussel from './Caroussel';
 import MarvelD from './MarvelD.jpg';
 
 const LandingPage = props => {
@@ -13,14 +12,6 @@ const LandingPage = props => {
 					<CardImg top width='100%' src={MarvelD} alt='Card image cap' />
 				</Col>
 			</div>
-			<Col
-				xl={{ size: '10', offset: 1 }}
-				lg={{ size: '10', offset: 1 }}
-				md={{ size: '10', offset: 1 }}
-				style={{ marginTop: '5vh' }}
-			>
-				<Caroussel />
-			</Col>
 			<CardGroup style={{ marginTop: '5vh' }}>
 				<Col xl={{ size: '5', offset: 1 }} lg={{ size: '5', offset: 1 }} md={{ size: '10', offset: 1 }}>
 					<Card style={{ border: '1px solid black' }}>
