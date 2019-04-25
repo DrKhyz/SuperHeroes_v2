@@ -7,9 +7,9 @@ import MarvelD from './MarvelD.jpg';
 const LandingPage = props => {
 	return (
 		<div style={{ background: 'black' }}>
-			<div style={{ display: 'flex', justifyContent: 'center', paddingTop: '5vh' }}>
-				<Col xl='5' lg='5' md='5' sm='8'>
-					<CardImg top width='100%' src={MarvelD} alt='Card image cap' />
+			<div style={{ display: 'flex', justifyContent: 'center', paddingTop: '2vh' }}>
+				<Col xl='5' lg='5' md='5' sm='8' style={{ display: 'flex', justifyContent: 'center' }}>
+					<img src={MarvelD} alt='Marvel stadium' />
 				</Col>
 			</div>
 			<CardGroup style={{ marginTop: '5vh' }}>
