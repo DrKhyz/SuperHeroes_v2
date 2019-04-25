@@ -1,41 +1,67 @@
-import React, { Component } from 'react';
-import Card from './components/Card/Card.jsx';
+import React, { Component } from 'react'
+import Card from './components/Card/Card.jsx'
 
 class SelectHero extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			search: '',
 			heroStore: [],
-			loadingHeroStore: true
-		};
-		this.handleChange = this.handleChange.bind(this);
+			loadingHeroStore: true,
+		}
 	}
 
 	handleChange = e => {
-		this.setState({ search: e.target.value });
-	};
+		this.setState({ search: e.target.value })
+	}
 
 	handleSubmit = e => {
-		this.setState({ loadingHeroStore: true });
+		this.setState({ loadingHeroStore: true })
 		fetch(`https://superheroapi.com/api.php/2427014800851400/search/${this.state.search}`)
 			.then(response => response.json())
 			.then(data => this.setState({ heroStore: data.results }))
-			.then(this.setState({ loadingHeroStore: false }));
-		e.preventDefault();
-	};
+			.then(this.setState({ loadingHeroStore: false }))
+		e.preventDefault()
+	}
+
+	selectHero = e => {
+		this.setState({ hero1: this.state.heroStore[e.target.id] })
+	}
+
+	resetHero = () => {
+		this.setState({ hero1: null, search: '', heroStore: [] })
+	}
 
 	render() {
 		return (
 			<div>
 				<form onSubmit={this.handleSubmit}>
-					<input type='text' onChange={this.handleChange} value={this.state.search} name='search' id='search' />
+					<input
+						type='text'
+						onChange={this.handleChange}
+						value={this.state.search}
+						name='search'
+						id='search'
+					/>
 					<button type='submit'>Submit</button>
 				</form>
-				{this.state.loadingHeroStore ? '' : this.state.heroStore.map(heroProps => <Card {...heroProps} />)}
+				<button onClick={this.resetHero}>Reset</button>
+				{this.state.hero1 ? (
+					<Card {...this.state.hero1} />
+				) : (
+					<div className='d-flex flex-wrap m-5'>
+						{this.state.loadingHeroStore
+							? ''
+							: this.state.heroStore.map((heroProps, i) => (
+									<div onClick={this.selectHero} key={i} id={i}>
+										<Card {...heroProps} />
+									</div>
+							  ))}
+					</div>
+				)}
 			</div>
-		);
+		)
 	}
 }
 
-export default SelectHero;
+export default SelectHero
