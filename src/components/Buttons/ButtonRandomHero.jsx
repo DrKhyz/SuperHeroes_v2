@@ -6,7 +6,7 @@ const ButtonRandomHero = ({ selectHero }) => {
 	return (
 		<div className='Button_Random'>
 			<Button color='primary' onClick={selectHero}>
-				Get random hero
+				random hero
 			</Button>
 		</div>
 	);

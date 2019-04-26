@@ -2,15 +2,34 @@ import React from 'react';
 import Background from './Background/Background';
 import CardStats from '../CardStats/CardStats';
 import CardName from '../CardName/CardName';
+import CardStars from '../CardStars/CardStars';
+import CardLife from '../CardLife/CardLife';
+import { Col } from 'reactstrap';
 import './Card.css';
 
 const Card = props => {
 	return (
-		<div className='cardContainer'>
-			<Background image={props.image} />
-			<CardName {...props} />
-			<CardStats {...props} />
-		</div>
+		<Col xl={{ size: '4' }} lg={{ size: '4' }} md={{ size: '4' }} sm={{ size: '4' }} xs={{ size: '4' }}>
+			<div className='bckg'>
+				<Background {...props} />
+			</div>
+			<div className='nlstrsts'>
+				<div className='cn'>
+					<CardName {...props} />
+				</div>
+
+				<div className='clife'>
+					<CardLife {...props} />
+				</div>
+
+				<div className='cstr'>
+					<CardStars {...props} />
+				</div>
+				<div className='csts'>
+					<CardStats {...props} />
+				</div>
+			</div>
+		</Col>
 	);
 };
 

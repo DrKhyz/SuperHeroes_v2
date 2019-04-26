@@ -1,9 +1,10 @@
 import React from 'react';
 import './CardStars.css';
-import SingleFilledStar from './SingleStars/SingleFilledStar';
-import SingleEmptyStar from './SingleStars/SingleEmptyStar';
+// import SingleFilledStar from './SingleStars/SingleFilledStar';
+// import SingleEmptyStar from './SingleStars/SingleEmptyStar';
+import { Container, CardImg, Row, Col } from 'reactstrap';
 
-const CardStars = (props) => {
+const CardStars = props => {
 	let int = parseInt(props.powerstats.intelligence);
 	let str = parseInt(props.powerstats.strength);
 	let spd = parseInt(props.powerstats.speed);
@@ -12,59 +13,270 @@ const CardStars = (props) => {
 	let cbt = parseInt(props.powerstats.combat);
 	let average = Math.floor((int + str + spd + end + pow + cbt) / 6);
 	if (average >= 0 && average <= 19) {
-		return <div className='stars'>
-			<SingleFilledStar />
-			<SingleEmptyStar />
-			<SingleEmptyStar />
-			<SingleEmptyStar />
-			<SingleEmptyStar />
-		</div>
+		return (
+			<Container>
+				<Col>
+					<Row>
+						<Col
+							style={{ padding: '0' }}
+							xl={{ size: 1, offset: 7 }}
+							lg={{ size: 1, offset: 7 }}
+							md={{ size: 1, offset: 6 }}
+							sm={{ size: 1, offset: 6 }}
+							xs={{ size: 1, offset: 6 }}
+						>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+						</Col>
+					</Row>
+				</Col>
+			</Container>
+		);
 	}
 	if (average >= 20 && average <= 39) {
-		return <div className='stars'>
-			<SingleFilledStar />
-			<SingleFilledStar />
-			<SingleEmptyStar />
-			<SingleEmptyStar />
-			<SingleEmptyStar />
-		</div>
+		return (
+			<Container>
+				<Col>
+					<Row>
+						<Col
+							style={{ padding: '0' }}
+							xl={{ size: 1, offset: 7 }}
+							lg={{ size: 1, offset: 7 }}
+							md={{ size: 1, offset: 6 }}
+							sm={{ size: 1, offset: 6 }}
+							xs={{ size: 1, offset: 6 }}
+						>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+						</Col>
+					</Row>
+				</Col>
+			</Container>
+		);
 	}
 	if (average >= 40 && average <= 59) {
-		return <div className='stars'>
-			<SingleFilledStar />
-			<SingleFilledStar />
-			<SingleFilledStar />
-			<SingleEmptyStar />
-			<SingleEmptyStar />
-		</div>
+		return (
+			<Container>
+				<Col>
+					<Row>
+						<Col
+							style={{ padding: '0' }}
+							xl={{ size: 1, offset: 7 }}
+							lg={{ size: 1, offset: 7 }}
+							md={{ size: 1, offset: 6 }}
+							sm={{ size: 1, offset: 6 }}
+							xs={{ size: 1, offset: 6 }}
+						>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+						</Col>
+					</Row>
+				</Col>
+			</Container>
+		);
 	}
-	if (average >= 60 && average <= 79) {
-		return <div className='stars'>
-			<SingleFilledStar />
-			<SingleFilledStar />
-			<SingleFilledStar />
-			<SingleFilledStar />
-			<SingleEmptyStar />
-		</div>
+	if (average >= 70 && average <= 79) {
+		return (
+			<Container>
+				<Col>
+					<Row>
+						<Col
+							style={{ padding: '0' }}
+							xl={{ size: 1, offset: 7 }}
+							lg={{ size: 1, offset: 7 }}
+							md={{ size: 1, offset: 6 }}
+							sm={{ size: 1, offset: 6 }}
+							xs={{ size: 1, offset: 6 }}
+						>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+						</Col>
+					</Row>
+				</Col>
+			</Container>
+		);
 	}
 	if (average >= 80 && average <= 100) {
-		return <div className='stars'>
-			<SingleFilledStar />
-			<SingleFilledStar />
-			<SingleFilledStar />
-			<SingleFilledStar />
-			<SingleFilledStar />
-		</div>
+		return (
+			<Container>
+				<Col>
+					<Row>
+						<Col
+							style={{ padding: '0' }}
+							xl={{ size: 1, offset: 7 }}
+							lg={{ size: 1, offset: 7 }}
+							md={{ size: 1, offset: 6 }}
+							sm={{ size: 1, offset: 6 }}
+							xs={{ size: 1, offset: 6 }}
+						>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+						<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+							<CardImg
+								top
+								width='100%'
+								src='https://img.icons8.com/color/32/000000/filled-star.png'
+								alt='Card image cap'
+							/>
+						</Col>
+					</Row>
+				</Col>
+			</Container>
+		);
 	}
 	return (
-		<div className='stars'>
-			<SingleEmptyStar />
-			<SingleEmptyStar />
-			<SingleEmptyStar />
-			<SingleEmptyStar />
-			<SingleEmptyStar />
-		</div>
-	)
+		<Container>
+			<Col>
+				<Row>
+					<Col
+						style={{ padding: '0' }}
+						xl={{ size: 1, offset: 7 }}
+						lg={{ size: 1, offset: 7 }}
+						md={{ size: 1, offset: 6 }}
+						sm={{ size: 1, offset: 6 }}
+						xs={{ size: 1, offset: 6 }}
+					>
+						<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+					</Col>
+					<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+						<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+					</Col>
+					<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+						<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+					</Col>
+					<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+						<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+					</Col>
+					<Col style={{ padding: '0' }} xl='1' lg='1' md='1' sm='1' xs='1'>
+						<CardImg top width='100%' src='https://img.icons8.com/color/48/000000/star.png' alt='Card image cap' />
+					</Col>
+				</Row>
+			</Col>
+		</Container>
+	);
 };
 
 export default CardStars;
