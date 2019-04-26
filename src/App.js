@@ -206,26 +206,45 @@ class App extends Component {
 	render() {
 		if (this.state.isLoading) {
 			return (
-				<div className='cardDisplay'>
-					<p>
+				<Row>
+					<Col
+						xl={{ size: 2, offset: 2 }}
+						lg={{ size: 2, offset: 2 }}
+						md={{ size: 2, offset: 2 }}
+						sm={{ size: 2, offset: 2 }}
+						xs={{ size: 2, offset: 2 }}
+					>
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
-					</p>
-					<div className='buttonDisplay'>
+					</Col>
+					<Col
+						xl={{ size: '2', offset: 1 }}
+						lg={{ size: '2', offset: 1 }}
+						md={{ size: '2', offset: 1 }}
+						sm={{ size: '2', offset: 1 }}
+						xs={{ size: '2', offset: 1 }}
+						className='d-flex flex-column justify-content-around'
+					>
 						<ButtonRandomHero
 							selectHero={() => {
 								this.getCaracter1();
 								this.getCaracter2();
 							}}
 						/>
-						<button color='danger'>Fight !</button>
-						<NavLink to='/'>
-							<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Back to landing page</Button>
+						<Button color='danger'>Fight !</Button>
+						<NavLink to='/' className='d-flex justify-content-center'>
+							<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
 						</NavLink>
-					</div>
-					<p>
+					</Col>
+					<Col
+						xl={{ size: 2, offset: 2 }}
+						lg={{ size: 2, offset: 2 }}
+						md={{ size: 2, offset: 2 }}
+						sm={{ size: 2, offset: 2 }}
+						xs={{ size: 2, offset: 2 }}
+					>
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
-					</p>
-				</div>
+					</Col>
+				</Row>
 			);
 		}
 		return (
@@ -238,7 +257,7 @@ class App extends Component {
 						md={{ size: '2', offset: 1 }}
 						sm={{ size: '2', offset: 1 }}
 						xs={{ size: '2', offset: 1 }}
-						className='d-flex flex-column'
+						className='d-flex flex-column justify-content-around'
 					>
 						<ButtonRandomHero
 							selectHero={() => {
