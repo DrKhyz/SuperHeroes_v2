@@ -3,8 +3,8 @@ import Card from './components/Card/Card';
 import ButtonRandomHero from './components/Buttons/ButtonRandomHero';
 import AlgoCombat from './AlgoCombat';
 import './App.css';
-import { Spinner, Button } from 'reactstrap';
-// import ImgVS from './components/ImgVS/ImgVS';
+import { Spinner, Container, Row, Col, Button } from 'reactstrap';
+import ImgVS from './components/ImgVS/ImgVS';
 import { NavLink } from 'react-router-dom';
 
 class App extends Component {
@@ -211,7 +211,6 @@ class App extends Component {
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
 					</p>
 					<div className='buttonDisplay'>
-						{/* <ImgVS urlImgVS='http://www.sclance.com/pngs/vs-png/vs_png_1474185.png' /> */}
 						<ButtonRandomHero
 							selectHero={() => {
 								this.getCaracter1();
@@ -230,28 +229,36 @@ class App extends Component {
 			);
 		}
 		return (
-			<div className='cardDisplay'>
-				<Card {...this.state.hero1} />
-				<div className='buttonDisplay'>
-					{/* <ImgVS urlImgVS='http://www.sclance.com/pngs/vs-png/vs_png_1474185.png' /> */}
-					<ButtonRandomHero
-						selectHero={() => {
-							this.getCaracter1();
-							this.getCaracter2();
-						}}
-					/>
-					{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
-						<div>Le gagnant est :{this.state.winner}</div>
-					) : (
-						<button onClick={() => this.ClickCombat()} color='danger'>
-							Fight !
-						</button>
-					)}
-					<NavLink to='/'>
-						<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Back to landing page</Button>
-					</NavLink>
-				</div>
-				<Card {...this.state.hero2} />
+			<div>
+				<Row>
+					<Card {...this.state.hero1} />
+					<Col
+						xl={{ size: '2', offset: 1 }}
+						lg={{ size: '2', offset: 1 }}
+						md={{ size: '2', offset: 1 }}
+						sm={{ size: '2', offset: 1 }}
+						xs={{ size: '2', offset: 1 }}
+						className='d-flex flex-column'
+					>
+						<ButtonRandomHero
+							selectHero={() => {
+								this.getCaracter1();
+								this.getCaracter2();
+							}}
+						/>
+						{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
+							<div>Le gagnant est :{this.state.winner}</div>
+						) : (
+							<Button onClick={() => this.ClickCombat()} color='danger'>
+								Fight !
+							</Button>
+						)}
+						<NavLink to='/' className='d-flex justify-content-center'>
+							<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
+						</NavLink>
+					</Col>
+					<Card {...this.state.hero2} />
+				</Row>
 			</div>
 		);
 	}

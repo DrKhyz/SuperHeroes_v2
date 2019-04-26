@@ -43,12 +43,12 @@ class SelectHero extends Component {
 				</form>
 				<button onClick={this.resetHero}>Reset</button>
 				<NavLink to='/'>
-					<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Back to landing page</Button>
+					<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
 				</NavLink>
 				{this.state.hero1 ? (
 					<Card {...this.state.hero1} />
 				) : (
-					<div className='d-flex flex-wrap m-5'>
+					<div>
 						{this.state.loadingHeroStore
 							? ''
 							: this.state.heroStore.map((heroProps, i) => (
