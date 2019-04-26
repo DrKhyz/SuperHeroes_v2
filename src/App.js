@@ -218,6 +218,9 @@ class App extends Component {
 							}}
 						/>
 						<button color='danger'>Fight !</button>
+						<NavLink to='/'>
+							<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Back to landing page</Button>
+						</NavLink>
 					</div>
 					<p>
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
