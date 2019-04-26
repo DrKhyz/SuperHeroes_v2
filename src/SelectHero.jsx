@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Card from './components/Card/Card.jsx';
-import { Button } from 'reactstrap';
+import { Button, CardImg, Col, Row, Input } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-
+import Select from './Select.jpg';
 class SelectHero extends Component {
 	constructor(props) {
 		super(props);
@@ -37,14 +37,49 @@ class SelectHero extends Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit}>
-					<input type='text' onChange={this.handleChange} value={this.state.search} name='search' id='search' />
-					<button type='submit'>Submit</button>
-				</form>
-				<button onClick={this.resetHero}>Reset</button>
-				<NavLink to='/'>
-					<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
-				</NavLink>
+				<Row>
+					<Col
+						xl={{ size: 4, offset: 4 }}
+						lg={{ size: 4, offset: 4 }}
+						md={{ size: 4, offset: 4 }}
+						sm={{ size: 4, offset: 4 }}
+						xs={{ size: 4, offset: 4 }}
+					>
+						<CardImg src={Select} alt='Select your hero' />
+					</Col>
+					<Col
+						xl={{ size: 1, offset: 3 }}
+						lg={{ size: 1, offset: 3 }}
+						md={{ size: 1, offset: 3 }}
+						sm={{ size: 1, offset: 3 }}
+						xs={{ size: 1, offset: 3 }}
+					>
+						<NavLink to='/'>
+							<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
+						</NavLink>
+					</Col>
+				</Row>
+				<Col
+					xl={{ size: 4, offset: 5 }}
+					lg={{ size: 4, offset: 4 }}
+					md={{ size: 4, offset: 4 }}
+					sm={{ size: 4, offset: 4 }}
+					xs={{ size: 4, offset: 4 }}
+					className='d-flex mt-5'
+				>
+					<Row>
+						<form onSubmit={this.handleSubmit}>
+							<input type='text' onChange={this.handleChange} value={this.state.search} name='search' id='search' />
+							<Button style={{ border: '1px solid black', backgroundColor: '#162CA2' }} type='submit'>
+								Submit
+							</Button>
+						</form>
+						<Button style={{ backgroundColor: 'red', border: '1px solid black' }} onClick={this.resetHero}>
+							Reset
+						</Button>
+					</Row>
+				</Col>
+
 				{this.state.hero1 ? (
 					<Card {...this.state.hero1} />
 				) : (
