@@ -48,7 +48,7 @@ class SelectHero extends Component {
 				{this.state.hero1 ? (
 					<Card {...this.state.hero1} />
 				) : (
-					<div className='d-flex flex-wrap m-5'>
+					<div>
 						{this.state.loadingHeroStore
 							? ''
 							: this.state.heroStore.map((heroProps, i) => (
