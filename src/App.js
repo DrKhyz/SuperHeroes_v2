@@ -5,6 +5,7 @@ import AlgoCombat from './AlgoCombat';
 import './App.css';
 import { Spinner, Container, Row, Col, Button } from 'reactstrap';
 import ImgVS from './components/ImgVS/ImgVS';
+import { NavLink } from 'react-router-dom';
 
 class App extends Component {
 	constructor(props) {
@@ -210,7 +211,6 @@ class App extends Component {
 						<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
 					</p>
 					<div className='buttonDisplay'>
-						{/* <ImgVS urlImgVS='http://www.sclance.com/pngs/vs-png/vs_png_1474185.png' /> */}
 						<ButtonRandomHero
 							selectHero={() => {
 								this.getCaracter1();
@@ -237,7 +237,6 @@ class App extends Component {
 						xs={{ size: '2', offset: 1 }}
 						className='d-flex flex-column'
 					>
-						{/* <ImgVS urlImgVS='http://www.sclance.com/pngs/vs-png/vs_png_1474185.png' /> */}
 						<ButtonRandomHero
 							selectHero={() => {
 								this.getCaracter1();
@@ -251,6 +250,9 @@ class App extends Component {
 								Fight !
 							</Button>
 						)}
+						<NavLink to='/' className='d-flex justify-content-center'>
+							<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
+						</NavLink>
 					</Col>
 					<Card {...this.state.hero2} />
 				</Row>
