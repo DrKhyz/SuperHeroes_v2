@@ -3,8 +3,7 @@ import Card from './components/Card/Card';
 import ButtonRandomHero from './components/Buttons/ButtonRandomHero';
 import AlgoCombat from './AlgoCombat';
 import './App.css';
-import { Spinner, Container, Row, Col, Button, CardImg } from 'reactstrap';
-import ImgVS from './components/ImgVS/ImgVS';
+import { Spinner, Row, Col, Button, CardImg } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
 class App extends Component {
@@ -270,7 +269,9 @@ class App extends Component {
 					<CardImg src='https://ya-webdesign.com/images/street-fighter-vs-logo-png-13.png' alt='fight' />
 				</Col>
 				<Row>
-					<Card {...this.state.hero1} />
+					<Col xl={{ size: '4' }} lg={{ size: '4' }} md={{ size: '4' }} sm={{ size: '4' }} xs={{ size: '4' }}>
+						<Card {...this.state.hero1} />
+					</Col>
 					<Col
 						xl={{ size: '2', offset: 1 }}
 						lg={{ size: '2', offset: 1 }}
@@ -286,7 +287,7 @@ class App extends Component {
 							}}
 						/>
 						{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
-							<div>Le gagnant est :{this.state.winner}</div>
+							<div style={{ color: 'white' }}>Le gagnant est :{this.state.winner}</div>
 						) : (
 							<Button onClick={() => this.ClickCombat()} color='danger'>
 								Fight !
@@ -296,7 +297,9 @@ class App extends Component {
 							<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
 						</NavLink>
 					</Col>
-					<Card {...this.state.hero2} />
+					<Col xl={{ size: '4' }} lg={{ size: '4' }} md={{ size: '4' }} sm={{ size: '4' }} xs={{ size: '4' }}>
+						<Card {...this.state.hero2} />
+					</Col>
 				</Row>
 			</div>
 		);

@@ -9,7 +9,8 @@ import './Card.css';
 
 const Card = props => {
 	return (
-		<Col xl={{ size: '4' }} lg={{ size: '4' }} md={{ size: '4' }} sm={{ size: '4' }} xs={{ size: '4' }}>
+		// <Col xl={{ size: '4' }} lg={{ size: '4' }} md={{ size: '4' }} sm={{ size: '4' }} xs={{ size: '4' }}>
+		<div>
 			<div className='bckg'>
 				<Background {...props} />
 			</div>
@@ -29,7 +30,8 @@ const Card = props => {
 					<CardStats {...props} />
 				</div>
 			</div>
-		</Col>
+		</div>
+		// </Col>
 	);
 };
 

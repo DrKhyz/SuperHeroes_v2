@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Card from './components/Card/Card.jsx';
-import { Button, CardImg, Col, Row, Input } from 'reactstrap';
+import { Button, CardImg, Col, Row, Container } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import Select from './Select.jpg';
 class SelectHero extends Component {
@@ -36,7 +36,7 @@ class SelectHero extends Component {
 
 	render() {
 		return (
-			<div>
+			<Container fluid>
 				<Row>
 					<Col
 						xl={{ size: 4, offset: 4 }}
@@ -93,7 +93,7 @@ class SelectHero extends Component {
 							  ))}
 					</div>
 				)}
-			</div>
+			</Container>
 		);
 	}
 }
