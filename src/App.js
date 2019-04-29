@@ -277,7 +277,7 @@ class App extends Component {
 								this.getCaracter2();
 							}}
 						/>
-						{this.state.clrInt ? this.stopInt() : console.log('ça ne fonctionne pas')}
+						{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
 						{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
 							<div>Le gagnant est :{this.state.winner}</div>
 						) : (
