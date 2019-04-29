@@ -5,7 +5,9 @@ import CardName from '../CardName/CardName';
 import CardStars from '../CardStars/CardStars';
 import CardLife from '../CardLife/CardLife';
 import { Col } from 'reactstrap';
+import { Jumbotron, Button } from 'reactstrap';
 import './Card.css';
+import Pctr from './pctr.jpeg';
 
 const Card = props => {
 	return (
@@ -14,13 +16,12 @@ const Card = props => {
 			<div className='bckg'>
 				<Background {...props} />
 			</div>
-			<div className='nlstrsts'>
-				<div className='cn'>
-					<CardName {...props} />
-				</div>
-
+			<div className='nlstrsts col-12'>
 				<div className='clife'>
 					<CardLife {...props} />
+				</div>
+				<div className='cn'>
+					<CardName {...props} />
 				</div>
 
 				<div className='cstr'>

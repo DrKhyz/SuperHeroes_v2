@@ -36,64 +36,38 @@ class SelectHero extends Component {
 
 	render() {
 		return (
-			<Container fluid>
-				<Row>
-					<Col
-						xl={{ size: 4, offset: 4 }}
-						lg={{ size: 4, offset: 4 }}
-						md={{ size: 4, offset: 4 }}
-						sm={{ size: 4, offset: 4 }}
-						xs={{ size: 4, offset: 4 }}
-					>
-						<CardImg src={Select} alt='Select your hero' />
-					</Col>
-					<Col
-						xl={{ size: 1, offset: 3 }}
-						lg={{ size: 1, offset: 3 }}
-						md={{ size: 1, offset: 3 }}
-						sm={{ size: 1, offset: 3 }}
-						xs={{ size: 1, offset: 3 }}
-					>
-						<NavLink to='/'>
-							<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
-						</NavLink>
-					</Col>
-				</Row>
-				<Col
-					xl={{ size: 4, offset: 5 }}
-					lg={{ size: 4, offset: 4 }}
-					md={{ size: 4, offset: 4 }}
-					sm={{ size: 4, offset: 4 }}
-					xs={{ size: 4, offset: 4 }}
-					className='d-flex mt-5'
-				>
-					<Row>
-						<form onSubmit={this.handleSubmit}>
-							<input type='text' onChange={this.handleChange} value={this.state.search} name='search' id='search' />
-							<Button style={{ border: '1px solid black', backgroundColor: '#162CA2' }} type='submit'>
-								Submit
-							</Button>
-						</form>
-						<Button style={{ backgroundColor: 'red', border: '1px solid black' }} onClick={this.resetHero}>
-							Reset
-						</Button>
-					</Row>
-				</Col>
+			<div>
+				{/* <CardImg src={Select} alt='Select your hero' /> */}
 
-				{this.state.hero1 ? (
-					<Card {...this.state.hero1} />
-				) : (
-					<div>
-						{this.state.loadingHeroStore
-							? ''
-							: this.state.heroStore.map((heroProps, i) => (
-									<div onClick={this.selectHero} key={i} id={i}>
-										<Card {...heroProps} />
-									</div>
-							  ))}
-					</div>
-				)}
-			</Container>
+				<NavLink to='/'>
+					<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
+				</NavLink>
+
+				<form onSubmit={this.handleSubmit}>
+					<input type='text' onChange={this.handleChange} value={this.state.search} name='search' id='search' />
+					<Button style={{ border: '1px solid black', backgroundColor: '#162CA2' }} type='submit'>
+						Submit
+					</Button>
+				</form>
+				<Button style={{ backgroundColor: 'red', border: '1px solid black' }} onClick={this.resetHero}>
+					Reset
+				</Button>
+				<div className='d-flex flex-center justify-content-center'>
+					{this.state.hero1 ? (
+						<Card {...this.state.hero1} />
+					) : (
+						<div>
+							{this.state.loadingHeroStore
+								? ''
+								: this.state.heroStore.map((heroProps, i) => (
+										<div onClick={this.selectHero} key={i} id={i}>
+											<Card {...heroProps} />
+										</div>
+								  ))}
+						</div>
+					)}
+				</div>
+			</div>
 		);
 	}
 }

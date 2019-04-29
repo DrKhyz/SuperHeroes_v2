@@ -1,103 +1,24 @@
-@media (min-width: 1200px) {
-	.cn {
-		margin-top: -125%;
-		margin-left: -9%;
-	}
-
-	.clife {
-		margin-top: -11%;
-	}
-
-	.cstr {
-		margin-top: -9%;
-	}
-
-	.csts {
-		margin-top: 70%;
-	}
+.nlstrsts {
+	position: absolute;
 }
 
-@media (max-width: 1199px) {
-	.cn {
-		font-size: 70%;
-		margin-top: -135%;
-		margin-left: -10%;
-	}
-
-	.clife {
-		margin-top: -14%;
-	}
-
-	.cstr {
-		margin-top: -10%;
-	}
-
-	.csts {
-		margin-top: 70%;
-	}
+.clife {
+	z-index: -1;
+	margin-top: -135%;
 }
 
-@media (max-width: 991px) {
-	.cn {
-		font-size: 50%;
-		margin-top: -100%;
-		margin-left: 7%;
-	}
-
-	.clife {
-		margin-top: -15%;
-	}
-
-	.cstr {
-		margin-top: -11%;
-		margin-right: 6%;
-	}
-
-	.csts {
-		font-size: 30%;
-		margin-top: 50%;
-	}
+.cn {
+	position: absolute;
+	margin-top: -9%;
+	margin-left: 5%;
+	z-index: 3;
 }
 
-@media (max-width: 767px) {
-	.cn {
-		font-size: 50%;
-		margin-top: -100%;
-		margin-left: 7%;
-	}
-
-	.clife {
-		margin-top: -18%;
-	}
-
-	.cstr {
-		margin-top: -15%;
-		margin-right: 4%;
-	}
-
-	.csts {
-		font-size: 40%;
-		margin-top: 40%;
-	}
+.cstr {
+	margin-top: -9.5%;
+	margin-right: 5%;
 }
 
-@media (max-width: 650px) {
-	.cn {
-		font-size: 40%;
-		margin-left: 3%;
-	}
-
-	.clife {
-		margin-top: -22%;
-	}
-
-	.cstr {
-		margin-top: -18%;
-		/* margin-right: 4%; */
-	}
-
-	.csts {
-		font-size: 25%;
-		/* margin-top: 40%; */
-	}
+.csts {
+	margin-top: 70%;
 }

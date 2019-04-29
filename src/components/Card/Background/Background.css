@@ -1,7 +1,4 @@
 .background_img {
-	width: 30vw;
-	height: 70vh;
-	border-radius: 1vw;
-	border: 2px solid black;
-	z-index: 0;
+	position: relative;
+	z-index: -2;
 }

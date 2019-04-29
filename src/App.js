@@ -203,63 +203,47 @@ class App extends Component {
 	}
 
 	render() {
-		if (this.state.isLoading) {
-			return (
-				<div>
-					<Col
-						xl={{ size: 2, offset: 5 }}
-						lg={{ size: 2, offset: 5 }}
-						md={{ size: 2, offset: 5 }}
-						sm={{ size: 2, offset: 5 }}
-						xs={{ size: 2, offset: 5 }}
-					>
-						<CardImg src='https://ya-webdesign.com/images/street-fighter-vs-logo-png-13.png' alt='fight' />
-					</Col>
-					<Row>
-						<Col
-							xl={{ size: 2, offset: 2 }}
-							lg={{ size: 2, offset: 2 }}
-							md={{ size: 2, offset: 2 }}
-							sm={{ size: 2, offset: 2 }}
-							xs={{ size: 2, offset: 2 }}
-						>
-							<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
-						</Col>
-						<Col
-							xl={{ size: '2', offset: 1 }}
-							lg={{ size: '2', offset: 1 }}
-							md={{ size: '2', offset: 1 }}
-							sm={{ size: '2', offset: 1 }}
-							xs={{ size: '2', offset: 1 }}
-							className='d-flex flex-column justify-content-around'
-						>
-							<ButtonRandomHero
-								selectHero={() => {
-									this.getCaracter1();
-									this.getCaracter2();
-								}}
-							/>
-							<Button color='danger'>Fight !</Button>
-							<NavLink to='/' className='d-flex justify-content-center'>
-								<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
-							</NavLink>
-						</Col>
-						<Col
-							xl={{ size: 2, offset: 2 }}
-							lg={{ size: 2, offset: 2 }}
-							md={{ size: 2, offset: 2 }}
-							sm={{ size: 2, offset: 2 }}
-							xs={{ size: 2, offset: 2 }}
-						>
-							<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
-						</Col>
-					</Row>
-				</div>
-			);
-		}
 		return (
 			<div>
-				<Col
+				<div className='d-flex justify-content-xl-around justify-content-lg-around justify-content-between flex-wrap'>
+					{/* CARD */}
+					<div className='d-flex justify-content-center col-xl-4 col-lg-3 col-10 mt-md-5 mb-md-5 mt-sm-5 mb-sm-5 mt-5 mb-5'>
+						<Card {...this.state.hero1} />
+					</div>
+					<div className='d-flex flex-column justify-content-around align-items-center col-xl-4 col-lg-2 mt-md-5 mb-md-5 mt-sm-5 mb-sm-5 mt-5 mb-5 pt-5'>
+						<div className='d-xl-block d-lg-block d-md-none d-sm-none d-none'>
+							<CardImg src='https://ya-webdesign.com/images/street-fighter-vs-logo-png-13.png' alt='fight' />
+						</div>
+						<ButtonRandomHero
+							selectHero={() => {
+								this.getCaracter1();
+								this.getCaracter2();
+							}}
+						/>
+						{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
+							<div style={{ color: 'white' }}>Le gagnant est :{this.state.winner}</div>
+						) : (
+							<Button onClick={() => this.ClickCombat()} color='danger'>
+								Start fighting !
+							</Button>
+						)}
+						<NavLink to='/'>
+							<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
+						</NavLink>
+					</div>
+					{/* CARD */}
+					<div className='d-flex justify-content-center col-xl-4 col-lg-3 col-10 mt-md-5 mb-md-5 mt-sm-5 mb-sm-5 mt-5 mb-5'>
+						<Card {...this.state.hero2} />
+					</div>
+				</div>
+			</div>
+		);
+	}
+}
+
+export default App;
+
+/* <Col
 					xl={{ size: 2, offset: 5 }}
 					lg={{ size: 2, offset: 5 }}
 					md={{ size: 2, offset: 5 }}
@@ -300,10 +284,60 @@ class App extends Component {
 					<Col xl={{ size: '4' }} lg={{ size: '4' }} md={{ size: '4' }} sm={{ size: '4' }} xs={{ size: '4' }}>
 						<Card {...this.state.hero2} />
 					</Col>
-				</Row>
-			</div>
-		);
-	}
-}
+				</Row> */
+/* <CardImg src='https://ya-webdesign.com/images/street-fighter-vs-logo-png-13.png' alt='fight' /> */
 
-export default App;
+/*if (this.state.isLoading) {
+	return (
+		<div>
+			<Col
+				xl={{ size: 2, offset: 5 }}
+				lg={{ size: 2, offset: 5 }}
+				md={{ size: 2, offset: 5 }}
+				sm={{ size: 2, offset: 5 }}
+				xs={{ size: 2, offset: 5 }}
+			>
+				<CardImg src='https://ya-webdesign.com/images/street-fighter-vs-logo-png-13.png' alt='fight' />
+			</Col>
+			<Row>
+				<Col
+					xl={{ size: 2, offset: 2 }}
+					lg={{ size: 2, offset: 2 }}
+					md={{ size: 2, offset: 2 }}
+					sm={{ size: 2, offset: 2 }}
+					xs={{ size: 2, offset: 2 }}
+				>
+					<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
+				</Col>
+				<Col
+					xl={{ size: '2', offset: 1 }}
+					lg={{ size: '2', offset: 1 }}
+					md={{ size: '2', offset: 1 }}
+					sm={{ size: '2', offset: 1 }}
+					xs={{ size: '2', offset: 1 }}
+					className='d-flex flex-column justify-content-around'
+				>
+					<ButtonRandomHero
+						selectHero={() => {
+							this.getCaracter1();
+							this.getCaracter2();
+						}}
+					/>
+					<Button color='danger'>Fight !</Button>
+					<NavLink to='/' className='d-flex justify-content-center'>
+						<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
+					</NavLink>
+				</Col>
+				<Col
+					xl={{ size: 2, offset: 2 }}
+					lg={{ size: 2, offset: 2 }}
+					md={{ size: 2, offset: 2 }}
+					sm={{ size: 2, offset: 2 }}
+					xs={{ size: 2, offset: 2 }}
+				>
+					<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
+				</Col>
+			</Row>
+		</div>
+	);
+}*/
