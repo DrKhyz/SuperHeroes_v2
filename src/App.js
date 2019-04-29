@@ -3,14 +3,15 @@ import Card from './components/Card/Card';
 import ButtonRandomHero from './components/Buttons/ButtonRandomHero';
 import AlgoCombat from './AlgoCombat';
 import './App.css';
-import { Spinner, Container, Row, Col, Button } from 'reactstrap';
-import ImgVS from './components/ImgVS/ImgVS';
+import { Spinner, Row, Col, Button } from 'reactstrap';
+// import ImgVS from './components/ImgVS/ImgVS';
 import { NavLink } from 'react-router-dom';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			clrInt: true,
 			isLoading: true,
 			winner: '',
 			hero1: {
@@ -73,6 +74,14 @@ class App extends Component {
 		this.setState(test);
 	}
 
+	interval() {
+		setInterval(() => this.ClickCombat(), 2000);
+	}
+
+	stopInt() {
+		clearInterval(this.interval());
+	}
+
 	componentDidMount() {
 		this.getCaracter1();
 		this.getCaracter2();
@@ -106,6 +115,7 @@ class App extends Component {
 					data.powerstats.combat = Math.floor(Math.random() * Math.floor(101));
 				}
 				this.setState({
+					clrInt: false,
 					isLoading: false,
 					winner: '',
 					hero1: {
@@ -168,6 +178,7 @@ class App extends Component {
 					data.powerstats.combat = Math.floor(Math.random() * Math.floor(101));
 				}
 				this.setState({
+					clrInt: false,
 					isLoading: false,
 					winner: '',
 					hero2: {
@@ -265,10 +276,11 @@ class App extends Component {
 								this.getCaracter2();
 							}}
 						/>
+						{this.state.clrInt ? this.stopInt() : console.log('ça ne fonctionne pas')}
 						{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
 							<div>Le gagnant est :{this.state.winner}</div>
 						) : (
-							<Button onClick={() => this.ClickCombat()} color='danger'>
+							<Button onClick={() => this.interval()} color='danger'>
 								Fight !
 							</Button>
 						)}
@@ -282,5 +294,4 @@ class App extends Component {
 		);
 	}
 }
-
 export default App;
