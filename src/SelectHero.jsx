@@ -52,7 +52,7 @@ class SelectHero extends Component {
 				<Button style={{ backgroundColor: 'red', border: '1px solid black' }} onClick={this.resetHero}>
 					Reset
 				</Button>
-				<div className='d-flex flex-center justify-content-center'>
+				<div className='d-flex justify-content-center'>
 					{this.state.hero1 ? (
 						<Card {...this.state.hero1} />
 					) : (
