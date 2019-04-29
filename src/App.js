@@ -24,20 +24,20 @@ class App extends Component {
 					power: '',
 					combat: '',
 					life: '',
-					barColor: ''
+					barColor: '',
 				},
 				biography: {
 					'full-name': '',
 					publisher: '',
-					alignment: ''
+					alignment: '',
 				},
 				appearance: {
 					gender: '',
 					race: '',
 					height: '',
-					weight: ''
+					weight: '',
 				},
-				image: ''
+				image: '',
 			},
 			hero2: {
 				id: '',
@@ -50,21 +50,21 @@ class App extends Component {
 					power: '',
 					combat: '',
 					life: '',
-					barColor: ''
+					barColor: '',
 				},
 				biography: {
 					'full-name': '',
 					publisher: '',
-					alignment: ''
+					alignment: '',
 				},
 				appearance: {
 					gender: '',
 					race: '',
 					height: '',
-					weight: ''
+					weight: '',
 				},
-				image: ''
-			}
+				image: '',
+			},
 		};
 	}
 
@@ -120,23 +120,23 @@ class App extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10)
+									(data.powerstats.speed / 10),
 							),
-							barColor: 'success'
+							barColor: 'success',
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
 							publisher: data.biography.publisher,
-							alignment: data.biography.alignment
+							alignment: data.biography.alignment,
 						},
 						appearance: {
 							gender: data.appearance.gender,
 							race: data.appearance.race,
 							height: data.appearance.height[1],
-							weight: data.appearance.weight[1]
+							weight: data.appearance.weight[1],
 						},
-						image: data.image
-					}
+						image: data.image,
+					},
 				});
 			});
 	}
@@ -182,23 +182,23 @@ class App extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10)
+									(data.powerstats.speed / 10),
 							),
-							barColor: 'success'
+							barColor: 'success',
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
 							publisher: data.biography.publisher,
-							alignment: data.biography.alignment
+							alignment: data.biography.alignment,
 						},
 						appearance: {
 							gender: data.appearance.gender,
 							race: data.appearance.race,
 							height: data.appearance.height[1],
-							weight: data.appearance.weight[1]
+							weight: data.appearance.weight[1],
 						},
-						image: data.image
-					}
+						image: data.image,
+					},
 				});
 			});
 	}
@@ -212,8 +212,7 @@ class App extends Component {
 						lg={{ size: 2, offset: 5 }}
 						md={{ size: 2, offset: 5 }}
 						sm={{ size: 2, offset: 5 }}
-						xs={{ size: 2, offset: 5 }}
-					>
+						xs={{ size: 2, offset: 5 }}>
 						<CardImg src='https://ya-webdesign.com/images/street-fighter-vs-logo-png-13.png' alt='fight' />
 					</Col>
 					<Row>
@@ -222,8 +221,7 @@ class App extends Component {
 							lg={{ size: 2, offset: 2 }}
 							md={{ size: 2, offset: 2 }}
 							sm={{ size: 2, offset: 2 }}
-							xs={{ size: 2, offset: 2 }}
-						>
+							xs={{ size: 2, offset: 2 }}>
 							<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
 						</Col>
 						<Col
@@ -232,8 +230,7 @@ class App extends Component {
 							md={{ size: '2', offset: 1 }}
 							sm={{ size: '2', offset: 1 }}
 							xs={{ size: '2', offset: 1 }}
-							className='d-flex flex-column justify-content-around'
-						>
+							className='d-flex flex-column justify-content-around'>
 							<ButtonRandomHero
 								selectHero={() => {
 									this.getCaracter1();
@@ -250,8 +247,7 @@ class App extends Component {
 							lg={{ size: 2, offset: 2 }}
 							md={{ size: 2, offset: 2 }}
 							sm={{ size: 2, offset: 2 }}
-							xs={{ size: 2, offset: 2 }}
-						>
+							xs={{ size: 2, offset: 2 }}>
 							<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
 						</Col>
 					</Row>
@@ -265,8 +261,7 @@ class App extends Component {
 					lg={{ size: 2, offset: 5 }}
 					md={{ size: 2, offset: 5 }}
 					sm={{ size: 2, offset: 5 }}
-					xs={{ size: 2, offset: 5 }}
-				>
+					xs={{ size: 2, offset: 5 }}>
 					<CardImg src='https://ya-webdesign.com/images/street-fighter-vs-logo-png-13.png' alt='fight' />
 				</Col>
 				<Row>
@@ -277,8 +272,7 @@ class App extends Component {
 						md={{ size: '2', offset: 1 }}
 						sm={{ size: '2', offset: 1 }}
 						xs={{ size: '2', offset: 1 }}
-						className='d-flex flex-column justify-content-around'
-					>
+						className='d-flex flex-column justify-content-around'>
 						<ButtonRandomHero
 							selectHero={() => {
 								this.getCaracter1();
