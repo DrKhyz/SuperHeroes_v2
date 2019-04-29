@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Card from './components/Card/Card.jsx';
-import { Button, CardImg, Col, Row, Container } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-import Select from './Select.jpg';
+// import Select from './Select.jpg';
 class SelectHero extends Component {
 	constructor(props) {
 		super(props);
