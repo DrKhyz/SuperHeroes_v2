@@ -67,6 +67,7 @@ class App extends Component {
 				image: ''
 			}
 		};
+		this.myInterval = null;
 	}
 
 	ClickCombat() {
@@ -75,11 +76,11 @@ class App extends Component {
 	}
 
 	interval() {
-		setInterval(() => this.ClickCombat(), 2000);
+		this.myInterval = setInterval(() => this.ClickCombat(), 1000);
 	}
 
 	stopInt() {
-		clearInterval(this.interval());
+		clearInterval(this.myInterval);
 	}
 
 	componentDidMount() {

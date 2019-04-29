@@ -49,9 +49,9 @@ const AlgoCombat = oldStats => {
 		if (count === 0) {
 			if (randomNumberC === 3) {
 				attack1 = Math.floor(Math.random() * (80 - 50) + 50) * 5;
-				// console.log('The hero 1 just hit with a critical strike');
-				// console.log('Attaque hero1 ' + attack1);
-				// console.log('RANDOMC ' + randomNumberC);
+				console.log('The hero 1 just hit with a critical strike');
+				console.log('Attaque hero1 ' + attack1);
+				console.log('RANDOMC ' + randomNumberC);
 			}
 
 			// GERE LA PLAGE DE DEGAT MINI ET MAXI DES HEROS.
@@ -87,9 +87,9 @@ const AlgoCombat = oldStats => {
 		if (count === 1) {
 			if (randomNumberC === 3) {
 				attack2 = Math.floor(Math.random() * (80 - 50) + 50) * 5;
-				// console.log('The hero 2 just hit with a critical strike');
-				// console.log('Attaque hero2 ' + attack2);
-				// console.log('RANDOMC ' + randomNumberC);
+				console.log('The hero 2 just hit with a critical strike');
+				console.log('Attaque hero2 ' + attack2);
+				console.log('RANDOMC ' + randomNumberC);
 			}
 
 			// GERE LA PLAGE DE DEGAT MINI ET MAXI DES HEROS.
