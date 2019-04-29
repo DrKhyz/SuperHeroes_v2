@@ -207,7 +207,7 @@ class App extends Component {
 			<div>
 				<div className='d-flex justify-content-xl-around justify-content-lg-around justify-content-between flex-wrap'>
 					{/* CARD */}
-					<div className='d-flex justify-content-center col-xl-4 col-lg-3 col-10 mt-md-5 mb-md-5 mt-sm-5 mb-sm-5 mt-5 mb-5'>
+					<div className='d-flex justify-content-center col-xl-4 col-lg-3 col-12 mt-md-5 mb-md-5 mt-sm-5 mb-sm-5 mt-5 mb-5'>
 						<Card {...this.state.hero1} />
 					</div>
 					<div className='d-flex flex-column justify-content-around align-items-center col-xl-4 col-lg-2 mt-md-5 mb-md-5 mt-sm-5 mb-sm-5 mt-5 mb-5 pt-5'>
@@ -232,7 +232,7 @@ class App extends Component {
 						</NavLink>
 					</div>
 					{/* CARD */}
-					<div className='d-flex justify-content-center col-xl-4 col-lg-3 col-10 mt-md-5 mb-md-5 mt-sm-5 mb-sm-5 mt-5 mb-5'>
+					<div className='d-flex justify-content-center col-xl-4 col-lg-3 col-12 col-10 mt-md-5 mb-md-5 mt-sm-5 mb-sm-5 mt-5 mb-5'>
 						<Card {...this.state.hero2} />
 					</div>
 				</div>
