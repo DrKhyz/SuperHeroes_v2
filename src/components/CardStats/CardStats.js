@@ -3,8 +3,8 @@ import { Table } from 'reactstrap';
 
 const CardStats = props => {
 	return (
-		<div>
-			<Table>
+		<div className='cardstats'>
+			<table style={{ width: '100%' }}>
 				<thead>
 					<tr>
 						<th>INT</th>
@@ -25,7 +25,7 @@ const CardStats = props => {
 						<td>{props.powerstats.combat}</td>
 					</tr>
 				</tbody>
-			</Table>
+			</table>
 			<div>
 				<div>Full-name: {props.name} </div>
 				<div>Alignement : {props.biography.alignment}</div>

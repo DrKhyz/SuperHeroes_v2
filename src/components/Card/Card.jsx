@@ -9,23 +9,11 @@ import './Card.css';
 const Card = props => {
 	return (
 		<div className='cardContainer'>
-			<div className='backgroundStyle'>
-				<Background {...props} />
-			</div>
-
-			<div className='clifeStyle '>
-				<CardLife {...props} />
-			</div>
-			<div className='nameStyle'>
-				<CardName {...props} />
-			</div>
-
-			<div className='starsStyle'>
-				<CardStars {...props} />
-			</div>
-			<div className='statsStyle'>
-				<CardStats {...props} />
-			</div>
+			<Background {...props} />
+			<CardLife {...props} />
+			<CardName {...props} />
+			<CardStars {...props} />
+			<CardStats {...props} />
 		</div>
 	);
 };

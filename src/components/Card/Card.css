@@ -1,39 +1,72 @@
-* {
-	border: 1px dotted blue;
-}
-
 .cardContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 30vw;
+	border: 1px solid black;
+	border-radius: 2vw;
+	background: #171314;
+	box-sizing: border-box;
+	padding: 0;
 }
 
-.backgroundStyle img {
-	position: relative;
-	border-radius: 5vw;
-	border: 3px solid grey;
+.backgroundImage {
+	width: 100%;
+	border-radius: 2vw;
+	overflow: hidden;
+	background-color: white;
+	height: 38vw;
 }
 
-.clifeStyle {
+.backgroundImage img {
+	max-height: var(--width);
+	width: 100%;
+}
+
+.backgroundOnError {
+	margin-top: 19%;
+	background: white;
+	margin-bottom: 19%;
+}
+
+.lifebar {
 	position: absolute;
+	margin-top: 10%;
+	margin-left: -21%;
+	width: 15vw;
+	height: 2vw;
 }
 
-.nameStyle {
+.cardname {
 	position: absolute;
-	font-size: 130%;
-	font-weight: bold;
-	color: black;
+	margin-top: 11%;
+	font-size: 1.5vw;
+	vertical-align: middle;
+	margin-left: -22%;
 }
 
-.starsStyle {
+.stars {
+	position: absolute;
+	margin-top: 10%;
+	font-size: 2vw;
+	margin-left: 21%;
+	width: 15vw;
 }
 
-.statsStyle {
-	background-color: black;
-	opacity: 0.6;
-	border: 2px solid white;
+.eachstars {
+	height: 2.5vw;
+	width: 2.5vw;
+}
+
+.cardstats {
+	position: absolute;
+	margin-top: 73%;
+	width: 80%;
 	border-radius: 1vw;
+	background-color: rgb(255, 255, 255, 0.8);
 	text-align: center;
-	color: bisque;
-}
-
-.statsStyle table {
-	color: bisque;
+	max-height: 12vw;
+	min-height: 10vw;
+	height: 12vw;
+	font-size: 1.5vw;
 }

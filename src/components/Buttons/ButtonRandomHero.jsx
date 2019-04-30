@@ -5,8 +5,8 @@ import './ButtonRandomHero.css';
 const ButtonRandomHero = ({ selectHero }) => {
 	return (
 		<div className='Button_Random'>
-			<Button color='primary' onClick={selectHero}>
-				random hero
+			<Button style={{ fontSize: '2.5vw' }} color='primary' onClick={selectHero}>
+				Random Hero
 			</Button>
 		</div>
 	);
