@@ -12,12 +12,21 @@ class SelectHero extends Component {
 			heroStore: [],
 			loadingHeroStore: true
 		};
+		this.myInterval = null;
 	}
 
 	ClickCombat = () => {
 		let test = AlgoCombat(this.state);
 		this.setState(test);
 	};
+
+	interval() {
+		this.myInterval = setInterval(() => this.ClickCombat(), 1000);
+	}
+
+	stopInt() {
+		clearInterval(this.myInterval);
+	}
 
 	getCaracter2 = () => {
 		this.setState({ isLoading: true });
@@ -156,11 +165,12 @@ class SelectHero extends Component {
 				{this.state.hero1 && this.state.hero2 ? (
 					<div className='d-flex flex-row justify-content-around'>
 						<Card {...this.state.hero1} />
+						{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
 						{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
 							<div>Le gagnant est :{this.state.winner}</div>
 						) : (
 							<div className='d-flex align-items-center'>
-								<Button onClick={() => this.ClickCombat()} color='danger'>
+								<Button onClick={() => this.interval()} color='danger'>
 									Fight !
 								</Button>
 							</div>
