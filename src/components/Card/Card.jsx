@@ -8,25 +8,12 @@ import './Card.css';
 
 const Card = props => {
 	return (
-		<div>
-			<div className='bckg'>
-				<Background {...props} />
-			</div>
-			<div className='nlstrsts col-12'>
-				<div className='clife'>
-					<CardLife {...props} />
-				</div>
-				<div className='cn'>
-					<CardName {...props} />
-				</div>
-
-				<div className='cstr'>
-					<CardStars {...props} />
-				</div>
-				<div className='csts'>
-					<CardStats {...props} />
-				</div>
-			</div>
+		<div className='cardContainer'>
+			<Background {...props} />
+			<CardLife {...props} />
+			<CardName {...props} />
+			<CardStars {...props} />
+			<CardStats {...props} />
 		</div>
 	);
 };

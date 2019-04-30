@@ -1,12 +1,11 @@
 import React from 'react';
-import './Background.css';
 
 const Background = props => {
 	return (
-		<div className=''>
+		<div className='backgroundImage'>
 			<img
-				className='background_img'
 				onError={e => {
+					e.target.className = 'backgroundOnError';
 					e.target.onerror = null;
 					e.target.src = 'https://image.shutterstock.com/image-vector/404-error-page-not-found-450w-603779531.jpg';
 				}}

@@ -1,24 +1,74 @@
-.nlstrsts {
+.cardContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 30vw;
+	border: 1px solid black;
+	border-radius: 2vw;
+	background: #171314;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.backgroundImage {
+	width: 100%;
+	border-radius: 2vw;
+	border: 3px solid grey;
+	overflow: hidden;
+	background-color: white;
+	height: 38vw;
+}
+
+.backgroundImage img {
+	max-height: var(--width);
+	width: 100%;
+}
+
+.backgroundOnError {
+	margin-top: 19%;
+	background: white;
+	margin-bottom: 19%;
+}
+
+.lifebar {
 	position: absolute;
+	margin-top: 10%;
+	margin-left: -21%;
+	width: 15vw;
+	height: 2vw;
 }
 
-.clife {
-	z-index: -1;
-	margin-top: -135%;
-}
-
-.cn {
+.cardname {
 	position: absolute;
-	margin-top: -9%;
-	margin-left: 5%;
-	z-index: 3;
+	margin-top: 11%;
+	font-size: 1.5vw;
+	vertical-align: middle;
+	margin-left: -22%;
 }
 
-.cstr {
-	margin-top: -9.5%;
-	margin-right: 5%;
+.stars {
+	position: absolute;
+	margin-top: 10%;
+	font-size: 2vw;
+	margin-left: 21%;
+	width: 15vw;
 }
 
-.csts {
-	margin-top: 70%;
+.eachstars {
+	height: 2.5vw;
+	width: 2.5vw;
+}
+
+.cardstats {
+	position: absolute;
+	margin-top: 73%;
+	width: 80%;
+	border-radius: 1vw;
+	background-color: rgba(10, 1, 1, 0.7);
+	text-align: center;
+	max-height: 12vw;
+	min-height: 10vw;
+	height: 12vw;
+	font-size: 1.5vw;
+	border: 2px solid grey;
 }
