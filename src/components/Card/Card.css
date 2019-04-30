@@ -13,6 +13,7 @@
 .backgroundImage {
 	width: 100%;
 	border-radius: 2vw;
+	border: 3px solid grey;
 	overflow: hidden;
 	background-color: white;
 	height: 38vw;
@@ -63,10 +64,11 @@
 	margin-top: 73%;
 	width: 80%;
 	border-radius: 1vw;
-	background-color: rgb(255, 255, 255, 0.8);
+	background-color: rgba(14, 1, 1, 0.7);
 	text-align: center;
 	max-height: 12vw;
 	min-height: 10vw;
 	height: 12vw;
 	font-size: 1.5vw;
+	border: 2px solid grey;
 }
