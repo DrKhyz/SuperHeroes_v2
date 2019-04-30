@@ -1,37 +1,39 @@
-.backgroundStyle {
-	position: relative;
-	z-index: -2;
+* {
+	border: 1px dotted blue;
 }
 
-.nlstrsts {
-	position: absolute;
+.cardContainer {
+}
+
+.backgroundStyle img {
+	position: relative;
+	border-radius: 5vw;
+	border: 3px solid grey;
 }
 
 .clifeStyle {
-	z-index: -1;
-	margin-top: -135%;
+	position: absolute;
 }
 
 .nameStyle {
 	position: absolute;
-	margin-top: -9%;
-	margin-left: 5%;
-	z-index: 3;
 	font-size: 130%;
 	font-weight: bold;
 	color: black;
 }
 
 .starsStyle {
-	margin-top: -9.5%;
-	margin-right: 5%;
 }
 
 .statsStyle {
-	margin-top: 70%;
-	background-color: #bbb;
-	opacity: 0.9;
-	border: 2px solid black;
+	background-color: black;
+	opacity: 0.6;
+	border: 2px solid white;
 	border-radius: 1vw;
 	text-align: center;
+	color: bisque;
+}
+
+.statsStyle table {
+	color: bisque;
 }

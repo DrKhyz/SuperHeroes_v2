@@ -3,7 +3,7 @@ import { Progress } from 'reactstrap';
 
 const CardLife = props => {
 	return (
-		<div className='card_life'>
+		<div>
 			<Progress
 				color={props.powerstats.barColor}
 				value={props.powerstats.life}
