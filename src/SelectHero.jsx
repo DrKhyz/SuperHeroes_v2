@@ -140,6 +140,7 @@ class SelectHero extends Component {
 	};
 
 	resetHero = () => {
+		this.setState({ clrInt: false });
 		this.setState({ hero1: null, search: '', heroStore: [] });
 	};
 
