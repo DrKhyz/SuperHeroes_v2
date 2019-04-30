@@ -152,97 +152,40 @@ class SelectHero extends Component {
 				<Button style={{ backgroundColor: 'red', border: '1px solid black' }} onClick={this.resetHero}>
 					Reset
 				</Button>
-				<div className='d-flex flex-column'>
-					{this.state.hero1 && this.state.hero2 ? (
-						<div className='d-flex flex-row justify-content-around'>
-							<Card {...this.state.hero1} />
-							{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
-								<div>Le gagnant est :{this.state.winner}</div>
-							) : (
+
+				{this.state.hero1 && this.state.hero2 ? (
+					<div className='d-flex flex-row justify-content-around'>
+						<Card {...this.state.hero1} />
+						{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
+							<div>Le gagnant est :{this.state.winner}</div>
+						) : (
+							<div className='d-flex align-items-center'>
 								<Button onClick={() => this.ClickCombat()} color='danger'>
 									Fight !
 								</Button>
-							)}
-							<Card {...this.state.hero2} />
-						</div>
-					) : (
-						<div>
-							{this.state.loadingHeroStore
-								? ''
-								: this.state.heroStore.map((heroProps, i) => (
-										<div style={{ width: '25%' }} onClick={() => this.selectHero(i)} key={i} id={i}>
+							</div>
+						)}
+						<Card {...this.state.hero2} />
+					</div>
+				) : (
+					<div>
+						{this.state.loadingHeroStore
+							? ''
+							: this.state.heroStore.map((heroProps, i) => (
+									<div
+										onClick={() => this.selectHero(i)}
+										key={i}
+										id={i}
+										className='d-flex justify-content-column flex-wrap col-12'
+									>
+										<div>
 											<Card {...heroProps} />
 										</div>
-								  ))}
-						</div>
-					)}
-				</div>
+									</div>
+							  ))}
+					</div>
+				)}
 			</div>
-			// <Container fluid>
-			// 	<Row>
-			// 		<Col
-			// 			xl={{ size: 4, offset: 4 }}
-			// 			lg={{ size: 4, offset: 4 }}
-			// 			md={{ size: 4, offset: 4 }}
-			// 			sm={{ size: 4, offset: 4 }}
-			// 			xs={{ size: 4, offset: 4 }}>
-			// 			<CardImg src={Select} alt='Select your hero' />
-			// 		</Col>
-			// 		<Col
-			// 			xl={{ size: 1, offset: 3 }}
-			// 			lg={{ size: 1, offset: 3 }}
-			// 			md={{ size: 1, offset: 3 }}
-			// 			sm={{ size: 1, offset: 3 }}
-			// 			xs={{ size: 1, offset: 3 }}>
-			// 			<NavLink to='/'>
-			// 				<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
-			// 			</NavLink>
-			// 		</Col>
-			// 	</Row>
-			// 	<Col
-			// 		xl={{ size: 4, offset: 5 }}
-			// 		lg={{ size: 4, offset: 4 }}
-			// 		md={{ size: 4, offset: 4 }}
-			// 		sm={{ size: 4, offset: 4 }}
-			// 		xs={{ size: 4, offset: 4 }}
-			// 		className='d-flex mt-5'>
-			// 		<Row>
-			// 			<form onSubmit={this.handleSubmit}>
-			// 				<input type='text' onChange={this.handleChange} value={this.state.search} name='search' id='search' />
-			// 				<Button style={{ border: '1px solid black', backgroundColor: '#162CA2' }} type='submit'>
-			// 					Submit
-			// 				</Button>
-			// 			</form>
-			// 			<Button style={{ backgroundColor: 'red', border: '1px solid black' }} onClick={this.resetHero}>
-			// 				Reset
-			// 			</Button>
-			// 		</Row>
-			// 	</Col>
-
-			// 	{this.state.hero1 && this.state.hero2 ? (
-			// 		<div className='d-flex flex-direction-row w-100'>
-			// 			<Card {...this.state.hero1} />
-			// 			{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
-			// 				<div>Le gagnant est :{this.state.winner}</div>
-			// 			) : (
-			// 				<Button onClick={() => this.ClickCombat()} color='danger'>
-			// 					Fight !
-			// 				</Button>
-			// 			)}
-			// 			<Card {...this.state.hero2} />
-			// 		</div>
-			// 	) : (
-			// 		<div>
-			// 			{this.state.loadingHeroStore
-			// 				? ''
-			// 				: this.state.heroStore.map((heroProps, i) => (
-			// 						<div onClick={this.selectHero} key={i} id={i}>
-			// 							<Card {...heroProps} />
-			// 						</div>
-			// 				  ))}
-			// 		</div>
-			// 	)}
-			// </Container>
 		);
 	}
 }
