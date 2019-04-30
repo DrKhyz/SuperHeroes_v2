@@ -164,18 +164,24 @@ class SelectHero extends Component {
 				</Button>
 
 				{this.state.hero1 && this.state.hero2 ? (
-					<div>
-						<Card {...this.state.hero1} />
-						{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
-						{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
-							<div>Le gagnant est :{this.state.winner}</div>
-						) : (
-							<Button onClick={() => this.interval()} color='danger'>
-								Fight !
-							</Button>
-						)}
-						<Card {...this.state.hero2} />
-					</div>
+					<Row>
+						<Col xs='4'>
+							<Card {...this.state.hero1} />
+						</Col>
+						<Col xs='4'>
+							{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
+							{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
+								<div>Le gagnant est :{this.state.winner}</div>
+							) : (
+								<Button onClick={() => this.interval()} color='danger'>
+									Fight !
+								</Button>
+							)}
+						</Col>
+						<Col xs='4'>
+							<Card {...this.state.hero2} />
+						</Col>
+					</Row>
 				) : (
 					<Row>
 						{this.state.loadingHeroStore
