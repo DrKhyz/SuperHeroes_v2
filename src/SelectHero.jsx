@@ -94,37 +94,37 @@ class SelectHero extends Component {
 		e.preventDefault();
 	};
 
-	selectHero = e => {
+	selectHero = i => {
 		this.setState({
 			hero1: {
-				id: this.state.heroStore[e.target.id].id,
-				name: this.state.heroStore[e.target.id].name,
+				id: this.state.heroStore[i].id,
+				name: this.state.heroStore[i].name,
 				powerstats: {
-					intelligence: parseInt(this.state.heroStore[e.target.id].powerstats.intelligence),
-					strength: parseInt(this.state.heroStore[e.target.id].powerstats.strength),
-					speed: parseInt(this.state.heroStore[e.target.id].powerstats.speed),
-					durability: parseInt(this.state.heroStore[e.target.id].powerstats.durability),
-					power: parseInt(this.state.heroStore[e.target.id].powerstats.power),
-					combat: parseInt(this.state.heroStore[e.target.id].powerstats.combat),
+					intelligence: parseInt(this.state.heroStore[i].powerstats.intelligence),
+					strength: parseInt(this.state.heroStore[i].powerstats.strength),
+					speed: parseInt(this.state.heroStore[i].powerstats.speed),
+					durability: parseInt(this.state.heroStore[i].powerstats.durability),
+					power: parseInt(this.state.heroStore[i].powerstats.power),
+					combat: parseInt(this.state.heroStore[i].powerstats.combat),
 					life: Math.floor(
-						(parseInt(this.state.heroStore[e.target.id].powerstats.durability) +
-							parseInt(this.state.heroStore[e.target.id].powerstats.intelligence)) *
-							(this.state.heroStore[e.target.id].powerstats.speed / 10)
+						(parseInt(this.state.heroStore[i].powerstats.durability) +
+							parseInt(this.state.heroStore[i].powerstats.intelligence)) *
+							(this.state.heroStore[i].powerstats.speed / 10)
 					),
 					barColor: 'success'
 				},
 				biography: {
-					'full-name': this.state.heroStore[e.target.id].biography['full-name'],
-					publisher: this.state.heroStore[e.target.id].biography.publisher,
-					alignment: this.state.heroStore[e.target.id].biography.alignment
+					'full-name': this.state.heroStore[i].biography['full-name'],
+					publisher: this.state.heroStore[i].biography.publisher,
+					alignment: this.state.heroStore[i].biography.alignment
 				},
 				appearance: {
-					gender: this.state.heroStore[e.target.id].appearance.gender,
-					race: this.state.heroStore[e.target.id].appearance.race,
-					height: this.state.heroStore[e.target.id].appearance.height[1],
-					weight: this.state.heroStore[e.target.id].appearance.weight[1]
+					gender: this.state.heroStore[i].appearance.gender,
+					race: this.state.heroStore[i].appearance.race,
+					height: this.state.heroStore[i].appearance.height[1],
+					weight: this.state.heroStore[i].appearance.weight[1]
 				},
-				image: this.state.heroStore[e.target.id].image
+				image: this.state.heroStore[i].image
 			}
 		});
 		this.getCaracter2();
@@ -152,9 +152,9 @@ class SelectHero extends Component {
 				<Button style={{ backgroundColor: 'red', border: '1px solid black' }} onClick={this.resetHero}>
 					Reset
 				</Button>
-				<div className='d-flex justify-content-center'>
+				<div className='d-flex flex-column'>
 					{this.state.hero1 && this.state.hero2 ? (
-						<div className='d-flex flex-direction-row w-100'>
+						<div className='d-flex flex-row justify-content-around'>
 							<Card {...this.state.hero1} />
 							{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
 								<div>Le gagnant est :{this.state.winner}</div>
@@ -170,7 +170,7 @@ class SelectHero extends Component {
 							{this.state.loadingHeroStore
 								? ''
 								: this.state.heroStore.map((heroProps, i) => (
-										<div onClick={this.selectHero} key={i} id={i}>
+										<div style={{ width: '25%' }} onClick={() => this.selectHero(i)} key={i} id={i}>
 											<Card {...heroProps} />
 										</div>
 								  ))}
