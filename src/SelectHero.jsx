@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Card from './components/Card/Card.jsx';
-import { Button, CardImg, Col, Row, Container } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import AlgoCombat from './AlgoCombat';
 import Select from './Select.jpg';
@@ -10,7 +10,7 @@ class SelectHero extends Component {
 		this.state = {
 			search: '',
 			heroStore: [],
-			loadingHeroStore: true,
+			loadingHeroStore: true
 		};
 	}
 
@@ -60,23 +60,23 @@ class SelectHero extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10),
+									(data.powerstats.speed / 10)
 							),
-							barColor: 'success',
+							barColor: 'success'
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
 							publisher: data.biography.publisher,
-							alignment: data.biography.alignment,
+							alignment: data.biography.alignment
 						},
 						appearance: {
 							gender: data.appearance.gender,
 							race: data.appearance.race,
 							height: data.appearance.height[1],
-							weight: data.appearance.weight[1],
+							weight: data.appearance.weight[1]
 						},
-						image: data.image,
-					},
+						image: data.image
+					}
 				});
 			});
 	};
@@ -109,23 +109,23 @@ class SelectHero extends Component {
 					life: Math.floor(
 						(parseInt(this.state.heroStore[i].powerstats.durability) +
 							parseInt(this.state.heroStore[i].powerstats.intelligence)) *
-							(this.state.heroStore[i].powerstats.speed / 10),
+							(this.state.heroStore[i].powerstats.speed / 10)
 					),
-					barColor: 'success',
+					barColor: 'success'
 				},
 				biography: {
 					'full-name': this.state.heroStore[i].biography['full-name'],
 					publisher: this.state.heroStore[i].biography.publisher,
-					alignment: this.state.heroStore[i].biography.alignment,
+					alignment: this.state.heroStore[i].biography.alignment
 				},
 				appearance: {
 					gender: this.state.heroStore[i].appearance.gender,
 					race: this.state.heroStore[i].appearance.race,
 					height: this.state.heroStore[i].appearance.height[1],
-					weight: this.state.heroStore[i].appearance.weight[1],
+					weight: this.state.heroStore[i].appearance.weight[1]
 				},
-				image: this.state.heroStore[i].image,
-			},
+				image: this.state.heroStore[i].image
+			}
 		});
 		this.getCaracter2();
 	};
@@ -136,56 +136,34 @@ class SelectHero extends Component {
 
 	render() {
 		return (
-			<Container fluid>
-				<Row>
-					<Col
-						xl={{ size: 4, offset: 4 }}
-						lg={{ size: 4, offset: 4 }}
-						md={{ size: 4, offset: 4 }}
-						sm={{ size: 4, offset: 4 }}
-						xs={{ size: 4, offset: 4 }}>
-						<CardImg src={Select} alt='Select your hero' />
-					</Col>
-					<Col
-						xl={{ size: 1, offset: 3 }}
-						lg={{ size: 1, offset: 3 }}
-						md={{ size: 1, offset: 3 }}
-						sm={{ size: 1, offset: 3 }}
-						xs={{ size: 1, offset: 3 }}>
-						<NavLink to='/'>
-							<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
-						</NavLink>
-					</Col>
-				</Row>
-				<Col
-					xl={{ size: 4, offset: 5 }}
-					lg={{ size: 4, offset: 4 }}
-					md={{ size: 4, offset: 4 }}
-					sm={{ size: 4, offset: 4 }}
-					xs={{ size: 4, offset: 4 }}
-					className='d-flex mt-5'>
-					<Row>
-						<form onSubmit={this.handleSubmit}>
-							<input type='text' onChange={this.handleChange} value={this.state.search} name='search' id='search' />
-							<Button style={{ border: '1px solid black', backgroundColor: '#162CA2' }} type='submit'>
-								Submit
-							</Button>
-						</form>
-						<Button style={{ backgroundColor: 'red', border: '1px solid black' }} onClick={this.resetHero}>
-							Reset
-						</Button>
-					</Row>
-				</Col>
+			<div>
+				{/* <CardImg src={Select} alt='Select your hero' /> */}
+
+				<NavLink to='/'>
+					<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
+				</NavLink>
+
+				<form onSubmit={this.handleSubmit}>
+					<input type='text' onChange={this.handleChange} value={this.state.search} name='search' id='search' />
+					<Button style={{ border: '1px solid black', backgroundColor: '#162CA2' }} type='submit'>
+						Submit
+					</Button>
+				</form>
+				<Button style={{ backgroundColor: 'red', border: '1px solid black' }} onClick={this.resetHero}>
+					Reset
+				</Button>
 
 				{this.state.hero1 && this.state.hero2 ? (
-					<div className='d-flex flex-direction-row w-100'>
+					<div className='d-flex flex-row justify-content-around'>
 						<Card {...this.state.hero1} />
 						{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
 							<div>Le gagnant est :{this.state.winner}</div>
 						) : (
-							<Button onClick={() => this.ClickCombat()} color='danger'>
-								Fight !
-							</Button>
+							<div className='d-flex align-items-center'>
+								<Button onClick={() => this.ClickCombat()} color='danger'>
+									Fight !
+								</Button>
+							</div>
 						)}
 						<Card {...this.state.hero2} />
 					</div>
@@ -194,13 +172,20 @@ class SelectHero extends Component {
 						{this.state.loadingHeroStore
 							? ''
 							: this.state.heroStore.map((heroProps, i) => (
-									<div style={{ width: '25%' }} onClick={() => this.selectHero(i)} key={i} id={i}>
-										<Card {...heroProps} />
+									<div
+										onClick={() => this.selectHero(i)}
+										key={i}
+										id={i}
+										className='d-flex justify-content-column align-items-center col-4'
+									>
+										<div>
+											<Card {...heroProps} />
+										</div>
 									</div>
 							  ))}
 					</div>
 				)}
-			</Container>
+			</div>
 		);
 	}
 }
