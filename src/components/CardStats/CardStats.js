@@ -6,7 +6,7 @@ const CardStats = props => {
 		<div className='cardstats'>
 			<table style={{ width: '100%' }}>
 				<thead>
-					<tr>
+					<tr style={{ color: 'orange' }}>
 						<th>INT</th>
 						<th>STR</th>
 						<th>SPD</th>
@@ -16,7 +16,7 @@ const CardStats = props => {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+					<tr style={{ color: 'yellow' }}>
 						<td>{props.powerstats.intelligence}</td>
 						<td>{props.powerstats.strength}</td>
 						<td>{props.powerstats.speed}</td>
@@ -26,7 +26,7 @@ const CardStats = props => {
 					</tr>
 				</tbody>
 			</table>
-			<div>
+			<div style={{ color: 'grey' }}>
 				<div>Full-name: {props.name} </div>
 				<div>Alignement : {props.biography.alignment}</div>
 				<div>Univers : {props.biography.publisher} </div>
