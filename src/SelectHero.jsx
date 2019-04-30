@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Card from './components/Card/Card.jsx';
+<<<<<<< HEAD
 import { Button, CardImg, Jumbotron, Container } from 'reactstrap';
+=======
+import { Button, Col, Row } from 'reactstrap';
+>>>>>>> dev
 import { NavLink } from 'react-router-dom';
 import AlgoCombat from './AlgoCombat';
 import Select from './select.png';
@@ -12,7 +16,7 @@ class SelectHero extends Component {
 		this.state = {
 			search: '',
 			heroStore: [],
-			loadingHeroStore: true
+			loadingHeroStore: true,
 		};
 		this.myInterval = null;
 	}
@@ -71,23 +75,23 @@ class SelectHero extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10)
+									(data.powerstats.speed / 10),
 							),
-							barColor: 'success'
+							barColor: 'success',
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
 							publisher: data.biography.publisher,
-							alignment: data.biography.alignment
+							alignment: data.biography.alignment,
 						},
 						appearance: {
 							gender: data.appearance.gender,
 							race: data.appearance.race,
 							height: data.appearance.height[1],
-							weight: data.appearance.weight[1]
+							weight: data.appearance.weight[1],
 						},
-						image: data.image
-					}
+						image: data.image,
+					},
 				});
 			});
 	};
@@ -148,23 +152,23 @@ class SelectHero extends Component {
 					life: Math.floor(
 						(parseInt(this.state.heroStore[i].powerstats.durability) +
 							parseInt(this.state.heroStore[i].powerstats.intelligence)) *
-							(this.state.heroStore[i].powerstats.speed / 10)
+							(this.state.heroStore[i].powerstats.speed / 10),
 					),
-					barColor: 'success'
+					barColor: 'success',
 				},
 				biography: {
 					'full-name': this.state.heroStore[i].biography['full-name'],
 					publisher: this.state.heroStore[i].biography.publisher,
-					alignment: this.state.heroStore[i].biography.alignment
+					alignment: this.state.heroStore[i].biography.alignment,
 				},
 				appearance: {
 					gender: this.state.heroStore[i].appearance.gender,
 					race: this.state.heroStore[i].appearance.race,
 					height: this.state.heroStore[i].appearance.height[1],
-					weight: this.state.heroStore[i].appearance.weight[1]
+					weight: this.state.heroStore[i].appearance.weight[1],
 				},
-				image: this.state.heroStore[i].image
-			}
+				image: this.state.heroStore[i].image,
+			},
 		});
 		this.getCaracter2();
 	};
@@ -200,6 +204,7 @@ class SelectHero extends Component {
 				</div>
 
 				{this.state.hero1 && this.state.hero2 ? (
+<<<<<<< HEAD
 					<div className='d-flex flex-row justify-content-around mt-5 mb-5'>
 						<Card {...this.state.hero1} />
 						{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
@@ -209,18 +214,32 @@ class SelectHero extends Component {
 							</div>
 						) : (
 							<div className='d-flex align-items-center'>
+=======
+					<Row>
+						<Col xs='4'>
+							<Card {...this.state.hero1} />
+						</Col>
+						<Col xs='4'>
+							{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
+							{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
+								<div>Le gagnant est :{this.state.winner}</div>
+							) : (
+>>>>>>> dev
 								<Button onClick={() => this.interval()} color='danger'>
 									Fight !
 								</Button>
-							</div>
-						)}
-						<Card {...this.state.hero2} />
-					</div>
+							)}
+						</Col>
+						<Col xs='4'>
+							<Card {...this.state.hero2} />
+						</Col>
+					</Row>
 				) : (
-					<div>
+					<Row>
 						{this.state.loadingHeroStore
 							? ''
 							: this.state.heroStore.map((heroProps, i) => (
+<<<<<<< HEAD
 									<div
 										onClick={() => this.selectHero(i)}
 										key={i}
@@ -228,11 +247,15 @@ class SelectHero extends Component {
 										className='d-flex justify-content-center align-items-center'
 									>
 										<div className='d-flex mt-5 mb-5 justify-content-center align-item-center'>
+=======
+									<Col key={i} xs='4'>
+										<div onClick={() => this.selectHero(i)} key={i} id={i}>
+>>>>>>> dev
 											<Card {...heroProps} />
 										</div>
-									</div>
+									</Col>
 							  ))}
-					</div>
+					</Row>
 				)}
 			</div>
 		);

@@ -1,8 +1,11 @@
 import React from 'react';
-import './CardName.css';
 
 const CardName = props => {
-	return <p className='card_Name'>{props.name}</p>;
+	return (
+		<div className='cardname'>
+			<p>{props.name}</p>
+		</div>
+	);
 };
 
 export default CardName;
