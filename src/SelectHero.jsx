@@ -176,7 +176,7 @@ class SelectHero extends Component {
 										onClick={() => this.selectHero(i)}
 										key={i}
 										id={i}
-										className='d-flex justify-content-column flex-wrap col-12'
+										className='d-flex justify-content-column align-items-center col-4'
 									>
 										<div>
 											<Card {...heroProps} />
