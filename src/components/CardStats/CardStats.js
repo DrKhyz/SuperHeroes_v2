@@ -1,10 +1,9 @@
 import React from 'react';
 import { Table } from 'reactstrap';
-import './CardStats.css';
 
 const CardStats = props => {
 	return (
-		<div className='card_stats'>
+		<div>
 			<Table>
 				<thead>
 					<tr>

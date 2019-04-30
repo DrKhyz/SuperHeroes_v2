@@ -9,21 +9,21 @@ import './Card.css';
 const Card = props => {
 	return (
 		<div>
-			<div className='bckg'>
+			<div className='backgroundStyle'>
 				<Background {...props} />
 			</div>
 			<div className='nlstrsts col-12'>
-				<div className='clife'>
+				<div className='clifeStyle '>
 					<CardLife {...props} />
 				</div>
-				<div className='cn'>
+				<div className='nameStyle'>
 					<CardName {...props} />
 				</div>
 
-				<div className='cstr'>
+				<div className='starsStyle'>
 					<CardStars {...props} />
 				</div>
-				<div className='csts'>
+				<div className='statsStyle'>
 					<CardStats {...props} />
 				</div>
 			</div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import './CardStars.css';
 
 const CardStars = props => {
 	let int = parseInt(props.powerstats.intelligence);
