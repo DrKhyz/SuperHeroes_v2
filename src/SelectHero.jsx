@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Card from './components/Card/Card.jsx';
-import { Button } from 'reactstrap';
+import { Button, CardImg, Jumbotron, Container } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import AlgoCombat from './AlgoCombat';
-import Select from './Select.jpg';
+import Select from './select.png';
+import Superheroes from './Superheroes.jpg';
+
 class SelectHero extends Component {
 	constructor(props) {
 		super(props);
@@ -98,7 +100,35 @@ class SelectHero extends Component {
 		this.setState({ loadingHeroStore: true });
 		fetch(`https://superheroapi.com/api.php/2427014800851400/search/${this.state.search}`)
 			.then(response => response.json())
-			.then(data => this.setState({ heroStore: data.results }))
+			.then(data => {
+				for (let i = 0; i < data.results.length; i++) {
+					if (data.results[i].powerstats.intelligence === 'null') {
+						data.results[i].powerstats.intelligence = Math.floor(Math.random() * Math.floor(101));
+					}
+					if (data.results[i].powerstats.strength === 'null') {
+						data.results[i].powerstats.strength = Math.floor(Math.random() * Math.floor(101));
+					}
+					if (data.results[i].powerstats.speed === 'null') {
+						data.results[i].powerstats.speed = Math.floor(Math.random() * Math.floor(101));
+					}
+					if (data.results[i].powerstats.durability === 'null') {
+						data.results[i].powerstats.durability = Math.floor(Math.random() * Math.floor(101));
+					}
+					if (data.results[i].powerstats.power === 'null') {
+						data.results[i].powerstats.power = Math.floor(Math.random() * Math.floor(101));
+					}
+					if (data.results[i].powerstats.combat === 'null') {
+						data.results[i].powerstats.combat = Math.floor(Math.random() * Math.floor(101));
+					}
+					data.results[i].powerstats.life = Math.floor(
+						(parseInt(data.results[i].powerstats.durability) + parseInt(data.results[i].powerstats.intelligence)) *
+							(data.results[i].powerstats.speed / 10)
+					);
+					data.results[i].powerstats.barColor = 'success';
+				}
+				this.setState({ heroStore: data.results });
+				console.log(data.results);
+			})
 			.then(this.setState({ loadingHeroStore: false }));
 		e.preventDefault();
 	};
@@ -147,28 +177,36 @@ class SelectHero extends Component {
 	render() {
 		return (
 			<div>
-				{/* <CardImg src={Select} alt='Select your hero' /> */}
-
-				<NavLink to='/'>
-					<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
-				</NavLink>
-
-				<form onSubmit={this.handleSubmit}>
-					<input type='text' onChange={this.handleChange} value={this.state.search} name='search' id='search' />
-					<Button style={{ border: '1px solid black', backgroundColor: '#162CA2' }} type='submit'>
-						Submit
+				<div className='d-flex'>
+					<div className='col-4 offset-4'>
+						<CardImg src={Select} alt='Select your hero' />
+					</div>
+					<div className='offset-3'>
+						<NavLink to='/'>
+							<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
+						</NavLink>
+					</div>
+				</div>
+				<div className='d-flex'>
+					<form onSubmit={this.handleSubmit}>
+						<input type='text' onChange={this.handleChange} value={this.state.search} name='search' id='search' />
+						<Button style={{ border: '1px solid black', backgroundColor: '#162CA2' }} type='submit'>
+							Submit
+						</Button>
+					</form>
+					<Button style={{ backgroundColor: 'red', border: '1px solid black' }} onClick={this.resetHero}>
+						Reset
 					</Button>
-				</form>
-				<Button style={{ backgroundColor: 'red', border: '1px solid black' }} onClick={this.resetHero}>
-					Reset
-				</Button>
+				</div>
 
 				{this.state.hero1 && this.state.hero2 ? (
-					<div className='d-flex flex-row justify-content-around'>
+					<div className='d-flex flex-row justify-content-around mt-5 mb-5'>
 						<Card {...this.state.hero1} />
 						{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
 						{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
-							<div>Le gagnant est :{this.state.winner}</div>
+							<div style={{ color: 'white' }} className='d-flex flex-column justify-content-center align-items-center'>
+								The winner is: {this.state.winner}
+							</div>
 						) : (
 							<div className='d-flex align-items-center'>
 								<Button onClick={() => this.interval()} color='danger'>
@@ -187,9 +225,9 @@ class SelectHero extends Component {
 										onClick={() => this.selectHero(i)}
 										key={i}
 										id={i}
-										className='d-flex justify-content-column align-items-center col-4'
+										className='d-flex justify-content-center align-items-center'
 									>
-										<div>
+										<div className='d-flex mt-5 mb-5 justify-content-center align-item-center'>
 											<Card {...heroProps} />
 										</div>
 									</div>
