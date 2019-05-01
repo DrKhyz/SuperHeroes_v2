@@ -35,6 +35,10 @@ class SelectHero extends Component {
 		clearInterval(this.myInterval);
 	}
 
+	componentWillUnmount() {
+		clearInterval(this.myInterval);
+	}
+
 	getCaracter2 = () => {
 		this.setState({ isLoading: true });
 		const getRandomInt2 = max => {

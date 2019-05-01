@@ -85,6 +85,10 @@ class App extends Component {
 		clearInterval(this.myInterval);
 	}
 
+	componentWillUnmount() {
+		clearInterval(this.myInterval);
+	}
+
 	componentDidMount() {
 		this.setState({ btnFightD: false });
 		this.getCaracter1();
