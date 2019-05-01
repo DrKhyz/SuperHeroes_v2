@@ -85,6 +85,10 @@ class App extends Component {
 		clearInterval(this.myInterval);
 	}
 
+	componentWillUnmount() {
+		clearInterval(this.myInterval);
+	}
+
 	componentDidMount() {
 		this.setState({ btnFightD: false });
 		this.getCaracter1();
@@ -221,6 +225,48 @@ class App extends Component {
 		if (this.state.isLoading) {
 			return (
 				<div>
+					<div className='d-flex col-12 flex-row'>
+						<div className='d-flex col-4 justify-content-center align-items-center'>
+							<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
+						</div>
+						<div className='d-flex flex-column justify-content-around align-items-center col-4'>
+							<CardImg src='https://ya-webdesign.com/images/street-fighter-vs-logo-png-13.png' alt='fight' />
+							<ButtonRandomHero
+								selectHero={() => {
+									this.getCaracter1();
+									this.getCaracter2();
+									clearInterval(this.myInterval);
+									this.setState({ btnFightD: false });
+								}}
+							/>
+							{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
+
+							{!this.state.btnFightD ? (
+								<div>
+									<Button
+										className='mb-5 mt-5'
+										style={{ fontSize: '2.5vw' }}
+										onClick={() => this.interval()}
+										color='danger'
+									>
+										Start fighting !
+									</Button>
+								</div>
+							) : this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
+								<div style={{ color: 'gold' }}>Le gagnant est: {this.state.winner}</div>
+							) : (
+								<div style={{ color: 'gold' }}>Currently fighting</div>
+							)}
+							<Button style={{ fontSize: '2.5vw' }}>
+								<NavLink className='text-decoration-none' to='/'>
+									Landing page
+								</NavLink>
+							</Button>
+						</div>
+						<div className='d-flex col-4 justify-content-center align-items-center'>
+							<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
+						</div>
+					</div>
 					{/* <div className='d-flex justify-content-xl-around justify-content-lg-around justify-content-between flex-wrap'>
 						<div className='d-flex justify-content-center col-xl-4 col-lg-3 col-12 mt-md-5 mb-md-5 mt-sm-5 mb-sm-5 mt-5 mb-5'>
 							<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
@@ -248,50 +294,42 @@ class App extends Component {
 			);
 		}
 		return (
-			<div>
-				<Row>
-					<Col xs='4'>
-						<Card {...this.state.hero1} />
-					</Col>
-					<Col xs='4'>
-						<CardImg src='https://ya-webdesign.com/images/street-fighter-vs-logo-png-13.png' alt='fight' />
-						<ButtonRandomHero
-							selectHero={() => {
-								this.getCaracter1();
-								this.getCaracter2();
-								clearInterval(this.myInterval);
-								this.setState({ btnFightD: false });
-							}}
-						/>
-						{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
+			<div className='d-flex col-12 flex-row'>
+				<div className='d-flex col-4'>
+					<Card {...this.state.hero1} />
+				</div>
+				<div className='d-flex flex-column justify-content-around align-items-center col-4'>
+					<CardImg src='https://ya-webdesign.com/images/street-fighter-vs-logo-png-13.png' alt='fight' />
+					<ButtonRandomHero
+						selectHero={() => {
+							this.getCaracter1();
+							this.getCaracter2();
+							clearInterval(this.myInterval);
+							this.setState({ btnFightD: false });
+						}}
+					/>
+					{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
 
-						{!this.state.btnFightD ? (
-							<div>
-								<Button style={{ fontSize: '2.5vw' }} onClick={() => this.interval()} color='danger'>
-									Start fighting !
-								</Button>
-							</div>
-						) : this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
-							<div style={{ color: 'white' }}>Le gagnant est :{this.state.winner}</div>
-						) : (
-							<div>Currently fighting</div>
-						)}
-
-						{/* {this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
-							<div style={{ color: 'white' }}>Le gagnant est :{this.state.winner}</div>
-						) : (
-							console.log('')
-						)} */}
-						<Button style={{ fontSize: '2.5vw' }}>
-							<NavLink className='text-decoration-none' to='/'>
-								Landing page
-							</NavLink>
-						</Button>
-					</Col>
-					<Col xs='4'>
-						<Card {...this.state.hero2} />
-					</Col>
-				</Row>
+					{!this.state.btnFightD ? (
+						<div>
+							<Button style={{ fontSize: '2.5vw' }} onClick={() => this.interval()} color='danger'>
+								Start fighting !
+							</Button>
+						</div>
+					) : this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
+						<div style={{ color: 'gold' }}>Le gagnant est: {this.state.winner}</div>
+					) : (
+						<div style={{ color: 'gold' }}>Currently fighting</div>
+					)}
+					<Button style={{ fontSize: '2.5vw' }}>
+						<NavLink className='text-decoration-none' to='/'>
+							Landing page
+						</NavLink>
+					</Button>
+				</div>
+				<div className='d-flex col-4'>
+					<Card {...this.state.hero2} />
+				</div>
 			</div>
 		);
 	}
