@@ -53,7 +53,7 @@ const CardStars = props => {
 			</div>
 		);
 	}
-	if (average >= 70 && average <= 79) {
+	if (average >= 60 && average <= 79) {
 		return (
 			<div className='stars d-flex justify-content-end'>
 				<img className='eachstars' src='https://img.icons8.com/color/32/000000/filled-star.png' alt='star' />
@@ -85,6 +85,7 @@ const CardStars = props => {
 	}
 	return (
 		<div className='stars d-flex justify-content-end'>
+			{console.log(average)}
 			<img className='eachstars' src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
 
 			<img className='eachstars' src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
