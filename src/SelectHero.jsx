@@ -8,19 +8,24 @@ class SelectHero extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			btnFightD: false,
 			search: '',
 			heroStore: [],
 			loadingHeroStore: true
 		};
 		this.myInterval = null;
 	}
-
+	componentDidMount() {
+		this.setState({ btnFightD: false });
+	}
 	ClickCombat = () => {
 		let test = AlgoCombat(this.state);
 		this.setState(test);
+		this.setState({ btnFightD: true });
 	};
 
 	interval() {
+		this.ClickCombat();
 		this.myInterval = setInterval(() => this.ClickCombat(), 1000);
 	}
 
@@ -169,13 +174,16 @@ class SelectHero extends Component {
 							<Card {...this.state.hero1} />
 						</Col>
 						<Col xs='4'>
-							{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
-							{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
-								<div>Le gagnant est :{this.state.winner}</div>
+							{!this.state.btnFightD ? (
+								<div>
+									<Button style={{ fontSize: '2.5vw' }} onClick={() => this.interval()} color='danger'>
+										Start fighting !
+									</Button>
+								</div>
+							) : this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
+								<div style={{ color: 'white' }}>Le gagnant est :{this.state.winner}</div>
 							) : (
-								<Button onClick={() => this.interval()} color='danger'>
-									Fight !
-								</Button>
+								<div>Currently fighting</div>
 							)}
 						</Col>
 						<Col xs='4'>
