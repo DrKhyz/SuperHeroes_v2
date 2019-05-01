@@ -3,7 +3,7 @@ import Card from './components/Card/Card.jsx';
 import { Button, Col, Row, CardImg } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import AlgoCombat from './AlgoCombat';
-import Select from './select.png';
+import Select from './select1.png';
 import Superheroes from './Superheroes.jpg';
 
 class SelectHero extends Component {
@@ -176,6 +176,7 @@ class SelectHero extends Component {
 
 	resetHero = () => {
 		this.setState({ clrInt: false });
+		this.setState({ btnFightD: false });
 		this.setState({ hero1: null, search: '', heroStore: [] });
 	};
 
@@ -209,7 +210,7 @@ class SelectHero extends Component {
 						<Col xs='4'>
 							<Card {...this.state.hero1} />
 						</Col>
-						<Col xs='4'>
+						<div className='col-4 d-flex justify-content-center'>
 							{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
 
 							{!this.state.btnFightD ? (
@@ -219,11 +220,11 @@ class SelectHero extends Component {
 									</Button>
 								</div>
 							) : this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
-								<div style={{ color: 'white' }}>Le gagnant est :{this.state.winner}</div>
+								<div style={{ color: 'gold' }}>Le gagnant est: {this.state.winner}</div>
 							) : (
-								<div>Currently fighting</div>
+								<div style={{ color: 'gold' }}>Currently fighting</div>
 							)}
-						</Col>
+						</div>
 						<Col xs='4'>
 							<Card {...this.state.hero2} />
 						</Col>
