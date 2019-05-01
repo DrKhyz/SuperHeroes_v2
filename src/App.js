@@ -10,6 +10,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			btnFightD: false,
 			clrInt: true,
 			isLoading: true,
 			winner: '',
@@ -24,20 +25,20 @@ class App extends Component {
 					power: '',
 					combat: '',
 					life: '',
-					barColor: '',
+					barColor: ''
 				},
 				biography: {
 					'full-name': '',
 					publisher: '',
-					alignment: '',
+					alignment: ''
 				},
 				appearance: {
 					gender: '',
 					race: '',
 					height: '',
-					weight: '',
+					weight: ''
 				},
-				image: '',
+				image: ''
 			},
 			hero2: {
 				id: '',
@@ -50,21 +51,21 @@ class App extends Component {
 					power: '',
 					combat: '',
 					life: '',
-					barColor: '',
+					barColor: ''
 				},
 				biography: {
 					'full-name': '',
 					publisher: '',
-					alignment: '',
+					alignment: ''
 				},
 				appearance: {
 					gender: '',
 					race: '',
 					height: '',
-					weight: '',
+					weight: ''
 				},
-				image: '',
-			},
+				image: ''
+			}
 		};
 		this.myInterval = null;
 	}
@@ -72,9 +73,11 @@ class App extends Component {
 	ClickCombat() {
 		let test = AlgoCombat(this.state);
 		this.setState(test);
+		this.setState({ btnFightD: true });
 	}
 
 	interval() {
+		this.ClickCombat();
 		this.myInterval = setInterval(() => this.ClickCombat(), 1000);
 	}
 
@@ -83,6 +86,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
+		this.setState({ btnFightD: false });
 		this.getCaracter1();
 		this.getCaracter2();
 	}
@@ -130,23 +134,23 @@ class App extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10),
+									(data.powerstats.speed / 10)
 							),
-							barColor: 'success',
+							barColor: 'success'
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
 							publisher: data.biography.publisher,
-							alignment: data.biography.alignment,
+							alignment: data.biography.alignment
 						},
 						appearance: {
 							gender: data.appearance.gender,
 							race: data.appearance.race,
 							height: data.appearance.height[1],
-							weight: data.appearance.weight[1],
+							weight: data.appearance.weight[1]
 						},
-						image: data.image,
-					},
+						image: data.image
+					}
 				});
 			});
 	}
@@ -193,23 +197,23 @@ class App extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10),
+									(data.powerstats.speed / 10)
 							),
-							barColor: 'success',
+							barColor: 'success'
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
 							publisher: data.biography.publisher,
-							alignment: data.biography.alignment,
+							alignment: data.biography.alignment
 						},
 						appearance: {
 							gender: data.appearance.gender,
 							race: data.appearance.race,
 							height: data.appearance.height[1],
-							weight: data.appearance.weight[1],
+							weight: data.appearance.weight[1]
 						},
-						image: data.image,
-					},
+						image: data.image
+					}
 				});
 			});
 	}
@@ -255,16 +259,29 @@ class App extends Component {
 							selectHero={() => {
 								this.getCaracter1();
 								this.getCaracter2();
+								clearInterval(this.myInterval);
+								this.setState({ btnFightD: false });
 							}}
 						/>
 						{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
-						{this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
+
+						{!this.state.btnFightD ? (
+							<div>
+								<Button style={{ fontSize: '2.5vw' }} onClick={() => this.interval()} color='danger'>
+									Start fighting !
+								</Button>
+							</div>
+						) : this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
 							<div style={{ color: 'white' }}>Le gagnant est :{this.state.winner}</div>
 						) : (
-							<Button style={{ fontSize: '2.5vw' }} onClick={() => this.interval()} color='danger'>
-								Start fighting !
-							</Button>
+							<div>Currently fighting</div>
 						)}
+
+						{/* {this.state.hero1.powerstats.life <= 0 || this.state.hero2.powerstats.life <= 0 ? (
+							<div style={{ color: 'white' }}>Le gagnant est :{this.state.winner}</div>
+						) : (
+							console.log('')
+						)} */}
 						<Button style={{ fontSize: '2.5vw' }}>
 							<NavLink className='text-decoration-none' to='/'>
 								Landing page
