@@ -210,6 +210,8 @@ class SelectHero extends Component {
 							<Card {...this.state.hero1} />
 						</Col>
 						<Col xs='4'>
+							{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
+
 							{!this.state.btnFightD ? (
 								<div>
 									<Button style={{ fontSize: '2.5vw' }} onClick={() => this.interval()} color='danger'>
