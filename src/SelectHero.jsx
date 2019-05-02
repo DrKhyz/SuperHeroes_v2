@@ -4,7 +4,6 @@ import { Button, Col, Row, CardImg } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import AlgoCombat from './AlgoCombat';
 import Select from './select1.png';
-import Superheroes from './Superheroes.jpg';
 
 class SelectHero extends Component {
 	constructor(props) {

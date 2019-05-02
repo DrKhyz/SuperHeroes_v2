@@ -1,5 +1,4 @@
 import React from 'react';
-import { Table } from 'reactstrap';
 
 const CardStats = props => {
 	return (

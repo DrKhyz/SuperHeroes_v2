@@ -3,7 +3,7 @@ import Card from './components/Card/Card';
 import ButtonRandomHero from './components/Buttons/ButtonRandomHero';
 import AlgoCombat from './AlgoCombat';
 import './App.css';
-import { Spinner, Button, CardImg, Row, Col } from 'reactstrap';
+import { Spinner, Button, CardImg } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
 class App extends Component {
