@@ -135,7 +135,6 @@ class SelectHero extends Component {
 					data.results[i].powerstats.barColor = 'success';
 				}
 				this.setState({ heroStore: data.results });
-				console.log(data.results);
 			})
 			.then(this.setState({ loadingHeroStore: false }));
 		e.preventDefault();
@@ -214,7 +213,7 @@ class SelectHero extends Component {
 							<Card {...this.state.hero1} />
 						</Col>
 						<div className='col-4 d-flex justify-content-center'>
-							{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
+							{this.state.clrInt && this.stopInt()}
 
 							{!this.state.btnFightD ? (
 								<div>
