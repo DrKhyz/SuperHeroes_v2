@@ -25,20 +25,20 @@ class App extends Component {
 					power: '',
 					combat: '',
 					life: '',
-					barColor: ''
+					barColor: '',
 				},
 				biography: {
 					'full-name': '',
 					publisher: '',
-					alignment: ''
+					alignment: '',
 				},
 				appearance: {
 					gender: '',
 					race: '',
 					height: '',
-					weight: ''
+					weight: '',
 				},
-				image: ''
+				image: '',
 			},
 			hero2: {
 				id: '',
@@ -51,21 +51,21 @@ class App extends Component {
 					power: '',
 					combat: '',
 					life: '',
-					barColor: ''
+					barColor: '',
 				},
 				biography: {
 					'full-name': '',
 					publisher: '',
-					alignment: ''
+					alignment: '',
 				},
 				appearance: {
 					gender: '',
 					race: '',
 					height: '',
-					weight: ''
+					weight: '',
 				},
-				image: ''
-			}
+				image: '',
+			},
 		};
 		this.myInterval = null;
 	}
@@ -137,25 +137,26 @@ class App extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10)
+									(data.powerstats.speed / 10),
 							),
-							barColor: 'success'
+							barColor: 'success',
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
 							publisher: data.biography.publisher,
-							alignment: data.biography.alignment
+							alignment: data.biography.alignment,
 						},
 						appearance: {
 							gender: data.appearance.gender,
 							race: data.appearance.race,
 							height: data.appearance.height[1],
-							weight: data.appearance.weight[1]
+							weight: data.appearance.weight[1],
 						},
-						image: data.image
-					}
+						image: data.image,
+					},
 				});
-			});
+			})
+			.catch(error => this.setState({ isError: true }));
 	}
 
 	getCaracter2() {
@@ -200,25 +201,26 @@ class App extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10)
+									(data.powerstats.speed / 10),
 							),
-							barColor: 'success'
+							barColor: 'success',
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
 							publisher: data.biography.publisher,
-							alignment: data.biography.alignment
+							alignment: data.biography.alignment,
 						},
 						appearance: {
 							gender: data.appearance.gender,
 							race: data.appearance.race,
 							height: data.appearance.height[1],
-							weight: data.appearance.weight[1]
+							weight: data.appearance.weight[1],
 						},
-						image: data.image
-					}
+						image: data.image,
+					},
 				});
-			});
+			})
+			.catch(error => this.setState({ isError: true }));
 	}
 	render() {
 		if (this.state.isLoading) {
@@ -246,8 +248,7 @@ class App extends Component {
 										className='mb-5 mt-5'
 										style={{ fontSize: '2.5vw' }}
 										onClick={() => this.interval()}
-										color='danger'
-									>
+										color='danger'>
 										Start fighting !
 									</Button>
 								</div>
