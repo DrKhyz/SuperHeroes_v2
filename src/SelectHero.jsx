@@ -12,7 +12,8 @@ class SelectHero extends Component {
 			btnFightD: false,
 			search: '',
 			heroStore: [],
-			loadingHeroStore: true
+			loadingHeroStore: true,
+			isError: false,
 		};
 		this.myInterval = null;
 	}
@@ -79,25 +80,26 @@ class SelectHero extends Component {
 							combat: parseInt(data.powerstats.combat),
 							life: Math.floor(
 								(parseInt(data.powerstats.durability) + parseInt(data.powerstats.intelligence)) *
-									(data.powerstats.speed / 10)
+									(data.powerstats.speed / 10),
 							),
-							barColor: 'success'
+							barColor: 'success',
 						},
 						biography: {
 							'full-name': data.biography['full-name'],
 							publisher: data.biography.publisher,
-							alignment: data.biography.alignment
+							alignment: data.biography.alignment,
 						},
 						appearance: {
 							gender: data.appearance.gender,
 							race: data.appearance.race,
 							height: data.appearance.height[1],
-							weight: data.appearance.weight[1]
+							weight: data.appearance.weight[1],
 						},
-						image: data.image
-					}
+						image: data.image,
+					},
 				});
-			});
+			})
+			.catch(error => this.setState({ isError: true }));
 	};
 
 	handleChange = e => {
@@ -105,7 +107,7 @@ class SelectHero extends Component {
 	};
 
 	handleSubmit = e => {
-		this.setState({ loadingHeroStore: true });
+		this.setState({ loadingHeroStore: true, isError: false });
 		fetch(`https://superheroapi.com/api.php/2427014800851400/search/${this.state.search}`)
 			.then(response => response.json())
 			.then(data => {
@@ -130,13 +132,14 @@ class SelectHero extends Component {
 					}
 					data.results[i].powerstats.life = Math.floor(
 						(parseInt(data.results[i].powerstats.durability) + parseInt(data.results[i].powerstats.intelligence)) *
-							(data.results[i].powerstats.speed / 10)
+							(data.results[i].powerstats.speed / 10),
 					);
 					data.results[i].powerstats.barColor = 'success';
 				}
 				this.setState({ heroStore: data.results });
 			})
-			.then(this.setState({ loadingHeroStore: false }));
+			.then(this.setState({ loadingHeroStore: false }))
+			.catch(error => this.setState({ isError: true }));
 		e.preventDefault();
 	};
 
@@ -155,23 +158,23 @@ class SelectHero extends Component {
 					life: Math.floor(
 						(parseInt(this.state.heroStore[i].powerstats.durability) +
 							parseInt(this.state.heroStore[i].powerstats.intelligence)) *
-							(this.state.heroStore[i].powerstats.speed / 10)
+							(this.state.heroStore[i].powerstats.speed / 10),
 					),
-					barColor: 'success'
+					barColor: 'success',
 				},
 				biography: {
 					'full-name': this.state.heroStore[i].biography['full-name'],
 					publisher: this.state.heroStore[i].biography.publisher,
-					alignment: this.state.heroStore[i].biography.alignment
+					alignment: this.state.heroStore[i].biography.alignment,
 				},
 				appearance: {
 					gender: this.state.heroStore[i].appearance.gender,
 					race: this.state.heroStore[i].appearance.race,
 					height: this.state.heroStore[i].appearance.height[1],
-					weight: this.state.heroStore[i].appearance.weight[1]
+					weight: this.state.heroStore[i].appearance.weight[1],
 				},
-				image: this.state.heroStore[i].image
-			}
+				image: this.state.heroStore[i].image,
+			},
 		});
 		this.getCaracter2();
 	};
@@ -179,7 +182,7 @@ class SelectHero extends Component {
 	resetHero = () => {
 		this.setState({ clrInt: false });
 		this.setState({ btnFightD: false });
-		this.setState({ hero1: null, search: '', heroStore: [] });
+		this.setState({ hero1: null, search: '', heroStore: [], isError: false });
 	};
 
 	render() {
@@ -195,6 +198,7 @@ class SelectHero extends Component {
 						</NavLink>
 					</div>
 				</div>
+				{this.state.isError && <p style={{ color: 'white' }}>No hero found for this request</p>}
 				<div className='d-flex'>
 					<form onSubmit={this.handleSubmit}>
 						<input type='text' onChange={this.handleChange} value={this.state.search} name='search' id='search' />
