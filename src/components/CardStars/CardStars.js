@@ -85,7 +85,6 @@ const CardStars = props => {
 	}
 	return (
 		<div className='stars d-flex justify-content-end'>
-			{console.log(average)}
 			<img className='eachstars' src='https://img.icons8.com/color/32/000000/star.png' alt='star' />
 
 			<img className='eachstars' src='https://img.icons8.com/color/32/000000/star.png' alt='star' />

@@ -3,7 +3,7 @@ import Card from './components/Card/Card';
 import ButtonRandomHero from './components/Buttons/ButtonRandomHero';
 import AlgoCombat from './AlgoCombat';
 import './App.css';
-import { Spinner, Button, CardImg, Row, Col } from 'reactstrap';
+import { Spinner, Button, CardImg } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
 class App extends Component {
@@ -105,7 +105,6 @@ class App extends Component {
 			.then(data => {
 				if (data.powerstats.intelligence === 'null') {
 					data.powerstats.intelligence = Math.floor(Math.random() * Math.floor(101));
-					console.log('Stats généré aléatoirement');
 				}
 				if (data.powerstats.strength === 'null') {
 					data.powerstats.strength = Math.floor(Math.random() * Math.floor(101));
@@ -239,7 +238,7 @@ class App extends Component {
 									this.setState({ btnFightD: false });
 								}}
 							/>
-							{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
+							{this.state.clrInt && this.stopInt()}
 
 							{!this.state.btnFightD ? (
 								<div>
@@ -267,29 +266,6 @@ class App extends Component {
 							<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
 						</div>
 					</div>
-					{/* <div className='d-flex justify-content-xl-around justify-content-lg-around justify-content-between flex-wrap'>
-						<div className='d-flex justify-content-center col-xl-4 col-lg-3 col-12 mt-md-5 mb-md-5 mt-sm-5 mb-sm-5 mt-5 mb-5'>
-							<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
-						</div>
-						<div className='d-flex flex-column justify-content-around align-items-center col-xl-4 col-lg-2 mt-md-5 mb-md-5 mt-sm-5 mb-sm-5 mt-5 mb-5 pt-5'>
-							<div className='d-xl-block d-lg-block d-md-none d-sm-none d-none'>
-								<CardImg src='https://ya-webdesign.com/images/street-fighter-vs-logo-png-13.png' alt='fight' />
-							</div>
-							<ButtonRandomHero
-								selectHero={() => {
-									this.getCaracter1();
-									this.getCaracter2();
-								}}
-							/>
-							<Button color='danger'>Fight !</Button>
-							<NavLink to='/' className='d-flex justify-content-center'>
-								<Button style={{ backgroundColor: '#162CA2', border: '1px solid black' }}>Landing page</Button>
-							</NavLink>
-						</div>
-						<div className='d-flex justify-content-center col-xl-4 col-lg-3 col-12 col-10 mt-md-5 mb-md-5 mt-sm-5 mb-sm-5 mt-5 mb-5'>
-							<Spinner style={{ width: '5rem', height: '5rem' }} color='primary' />
-						</div>
-					</div> */}
 				</div>
 			);
 		}
@@ -308,7 +284,7 @@ class App extends Component {
 							this.setState({ btnFightD: false });
 						}}
 					/>
-					{this.state.clrInt ? this.stopInt() : console.log('the interval is still working')}
+					{this.state.clrInt && this.stopInt()}
 
 					{!this.state.btnFightD ? (
 						<div>
